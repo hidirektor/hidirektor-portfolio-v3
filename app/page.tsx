@@ -105,8 +105,37 @@ const techStack = [
 
 const projects = [
   {
+    title: "TÜBİTAK 2242 | DeepCompressLink",
+    period: "Ongoing",
+    supportStatus: "Pending",
+    subtitle: "Delay-Tolerant Adaptive Data Compression Protocol for CubeSat Telemetry",
+    desc: "Designing a DTN-compatible, stateless compression protocol for CubeSat and deep-space telemetry, validated in SimPy-based simulations across LEO, lunar orbit, and Mars scenarios.",
+    tools: ["Python", "SimPy", "DTN", "CubeSat", "Space Telemetry"],
+    github: "https://github.com/hidirektor",
+  },
+  {
+    title: "TEKNOFEST | ONYX Thermal-Hydraulic Analysis Software",
+    period: "Ongoing",
+    supportStatus: "Pending",
+    subtitle: "Thermal-Hydraulic Analysis Software for SMR/MMR Cooling Loops and Reactor Core",
+    desc: "Team ONYX: building a C++ simulation engine with a Node.js backend, Redis caching, and web/mobile dashboards to analyze temperature, pressure drop, flow rate, and power output — validated against IAEA/OECD benchmarks.",
+    tools: ["C++", "Node.js", "Redis", "React Native", "IAEA/OECD"],
+    github: "https://github.com/hidirektor",
+  },
+  {
+    title: "TÜBİTAK 2209-B | CompressM2M",
+    period: "Ongoing",
+    supportStatus: "Pending",
+    subtitle: "Adaptive M2M Data Compression Protocol for Low-Power IoT Devices",
+    desc: "Building a lightweight, lossless adaptive compression protocol on ESP32-S3 to reduce payload size and energy usage in LoRaWAN and NB-IoT based M2M communication.",
+    tools: ["C++", "ESP32-S3", "LoRaWAN", "NB-IoT", "Embedded"],
+    github: "https://github.com/hidirektor",
+  },
+  {
     title: "Class Roll Call Management System",
     period: "Oct – Nov 2025",
+    supportStatus: null,
+    subtitle: "",
     desc: "Real-time attendance tracking for educational institutions with dynamic QR code generation, device fingerprinting, OTP auth, and Excel export analytics.",
     tools: ["Next.js", "Node.js", "MySQL", "Redis", "Docker"],
     github: "https://github.com/hidirektor",
@@ -114,6 +143,8 @@ const projects = [
   {
     title: "Open-Source Web 3.0 IoT Platform",
     period: "Mar 2024 – May 2025",
+    supportStatus: null,
+    subtitle: "",
     desc: "TÜBİTAK 2209-B funded IIoT platform for industrial PLCs — STM32/FreeRTOS embedded firmware, Node.js cloud services validated at 10,000 data points/min.",
     tools: ["C++", "FreeRTOS", "STM32", "Node.js", "MQTT", "React Native"],
     github: "https://github.com/hidirektor",
@@ -121,6 +152,8 @@ const projects = [
   {
     title: "Delivery Boy Mobile Application",
     period: "Dec 2023 – Apr 2024",
+    supportStatus: null,
+    subtitle: "",
     desc: "Cross-platform e-commerce ecosystem: real-time order tracking via Spring Boot, native Android (Java) and iOS (Swift) apps with seamless API integration.",
     tools: ["Java", "Spring Boot", "Swift", "Node.js"],
     github: "https://github.com/hidirektor",
@@ -128,6 +161,8 @@ const projects = [
   {
     title: "TFEncryption Chat App",
     period: "Nov – Dec 2021",
+    supportStatus: null,
+    subtitle: "",
     desc: "Encrypted peer-to-peer chat using Cactoos, Concurrency and WebRTC with SPN, SHA256 and MD5 encryption options. JavaFX-based desktop UI.",
     tools: ["Java", "JavaFX", "WebRTC"],
     github: "https://github.com/hidirektor",
@@ -376,8 +411,19 @@ export default function Home() {
             <div className="projects-grid" style={{ marginTop: "2.5rem" }}>
               {projects.map((p) => (
                 <article key={p.title} className="project-card">
-                  <span className="badge">{p.period}</span>
+                  <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+                    <span className="badge">{p.period}</span>
+                    {p.supportStatus && (
+                      <>
+                        <span className="badge badge-orange">Support: {p.supportStatus}</span>
+                        <span className="badge" style={{ background: "rgba(0,200,100,0.12)", color: "#00c864", borderColor: "rgba(0,200,100,0.25)" }}>Ongoing</span>
+                      </>
+                    )}
+                  </div>
                   <h3 className="project-card-title">{p.title}</h3>
+                  {p.subtitle && (
+                    <p style={{ fontSize: "0.8rem", color: "var(--accent)", fontWeight: 600, lineHeight: 1.4 }}>{p.subtitle}</p>
+                  )}
                   <p className="project-card-desc">{p.desc}</p>
                   <div className="project-card-tools">
                     {p.tools.map((t) => (
@@ -493,14 +539,11 @@ export default function Home() {
                 Let&apos;s build something <span style={{ color: "var(--accent)" }}>extraordinary</span>.
               </h2>
               <p className="section-sub" style={{ margin: "1rem auto 0", textAlign: "center" }}>
-                Whether it&apos;s a complex backend, an IoT system, a mobile app, or just a great conversation about cycling — I&apos;m always open.
+                Whether it&apos;s a complex backend, an IoT system, a mobile app, or just a great conversation about cycling — reach out directly.
               </p>
               <div className="contact-links">
                 <a href="mailto:hidirektor@gmail.com" className="btn btn-primary">
                   hidirektor@gmail.com
-                </a>
-                <a href="tel:+905372398284" className="btn btn-outline">
-                  +90 537 239 8284
                 </a>
                 <a href="https://github.com/hidirektor" target="_blank" rel="noopener noreferrer" className="btn btn-outline">
                   GitHub ↗
