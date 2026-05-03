@@ -1,5 +1,7 @@
 import Header from "./components/Header";
 import MediumWidget from "./components/MediumWidget";
+import CareerRoute from "./components/CareerRoute";
+import Footer from "./components/Footer";
 
 /* ── DATA ─────────────────────────────────────────────────────────── */
 
@@ -193,22 +195,12 @@ export default function Home() {
 
         {/* ── EXPERIENCE ───────────────────────────────────── */}
         <section id="experience">
-          <div className="wrap">
+          <div className="wrap-wide">
             <p className="label">Experience</p>
-            <div className="exp-list">
-              {experience.map((e) => (
-                <div key={e.role + e.period} className="exp-item">
-                  <div className="exp-meta">
-                    <span className="exp-role">{e.role}</span>
-                    <span className="exp-period">{e.period}</span>
-                  </div>
-                  <p className="exp-company">{e.company}</p>
-                  <ul className="exp-bullets">
-                    {e.bullets.map((b, i) => <li key={i}>{b}</li>)}
-                  </ul>
-                </div>
-              ))}
-            </div>
+            <p className="section-p" style={{ marginBottom: "2rem" }}>
+              Click any stage to explore — from London to İzmir, 7 stops across my engineering journey.
+            </p>
+            <CareerRoute />
           </div>
         </section>
 
@@ -348,14 +340,9 @@ export default function Home() {
         </section>
 
         {/* ── FOOTER ───────────────────────────────────────── */}
-        <footer>
-          <div className="footer">
-            <span className="footer-text">© {new Date().getFullYear()} Halil İbrahim Direktör</span>
-            <span className="footer-text">Software Architect · İzmir, Turkey 🚴</span>
-          </div>
-        </footer>
 
       </main>
+      <Footer />
     </>
   );
 }

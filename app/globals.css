@@ -42,70 +42,14 @@ a { color: inherit; text-decoration: none; }
 section { padding: 5rem 0; }
 section + section { border-top: 1px solid var(--border); }
 
-/* ── Header ──────────────────────────────────────────────────────── */
-.header {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  height: 56px;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid var(--border);
-  background: rgba(0,0,0,0.85);
-  backdrop-filter: blur(12px);
-}
-.header-inner {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  color: var(--text);
-}
-.logo-dot {
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
-  flex-shrink: 0;
-}
-.nav {
-  display: flex;
-  align-items: center;
-  gap: 1.75rem;
-  list-style: none;
-}
-.nav a {
-  font-size: 0.8rem;
-  color: var(--muted);
-  transition: color 0.15s;
-}
-.nav a:hover { color: var(--text); }
-.header-mail {
-  font-size: 0.78rem;
-  color: var(--muted);
-  border: 1px solid var(--border);
-  padding: 0.35rem 0.85rem;
-  border-radius: 6px;
-  transition: all 0.15s;
-}
-.header-mail:hover { color: var(--text); border-color: var(--dim); }
+/* Header — styles live in Header.tsx (inline + scoped <style>) */
 
 /* ── Hero ────────────────────────────────────────────────────────── */
 .hero {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding-top: 56px;
+  padding-top: 60px;
   position: relative;
 }
 .hero-bg {
@@ -436,19 +380,8 @@ section + section { border-top: 1px solid var(--border); }
 }
 .contact-link:hover { color: var(--text); }
 
-/* ── Footer ──────────────────────────────────────────────────────── */
-.footer {
-  border-top: 1px solid var(--border);
-  padding: 1.75rem 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  max-width: 960px;
-  margin: 0 auto;
-}
-.footer-text { font-size: 0.75rem; color: var(--muted); }
+/* Footer — styles live in Footer.tsx (inline styles) */
+
 
 /* ── Anim ────────────────────────────────────────────────────────── */
 @keyframes fade-up {
@@ -460,10 +393,204 @@ section + section { border-top: 1px solid var(--border); }
 .anim-3 { animation: fade-up 0.6s 0.4s both; }
 .anim-4 { animation: fade-up 0.6s 0.55s both; }
 
-/* ── Responsive ──────────────────────────────────────────────────── */
-@media (max-width: 640px) {
-  .nav { display: none; }
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 768px) {
   .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .project-item { grid-template-columns: 1fr; }
   .project-right { flex-direction: row; align-items: center; }
+}
+
+/* ── Career Route (Tour de France style) ─────────────────────────── */
+.route-root {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 0;
+  min-height: 480px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #030303;
+}
+
+/* Map */
+.route-map {
+  position: relative;
+  background: #050505;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--border);
+  padding: 1.5rem 1.5rem 1rem;
+  gap: 1rem;
+}
+.route-svg {
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+}
+
+/* Pulse animation */
+@keyframes route-pulse {
+  0%   { r: 2.8; opacity: 0.6; }
+  70%  { r: 5;   opacity: 0; }
+  100% { r: 2.8; opacity: 0; }
+}
+.route-pulse { animation: route-pulse 1.8s ease-out infinite; }
+
+/* Stage chips */
+.route-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
+}
+.route-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 0.68rem;
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.route-chip:hover {
+  border-color: var(--chip-color, var(--accent));
+  color: var(--chip-color, var(--accent));
+}
+.route-chip--active {
+  background: var(--chip-color, var(--accent));
+  border-color: var(--chip-color, var(--accent));
+  color: #000;
+  font-weight: 700;
+}
+.route-chip--passed:not(.route-chip--active) {
+  border-color: color-mix(in srgb, var(--chip-color, var(--accent)) 40%, transparent);
+  color: color-mix(in srgb, var(--chip-color, var(--accent)) 60%, var(--muted));
+}
+.route-chip-num {
+  font-size: 0.62rem;
+  font-weight: 800;
+  opacity: 0.8;
+}
+.route-chip-role {
+  font-size: 0.65rem;
+}
+
+/* Detail panel */
+.route-detail {
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  animation: route-slide-in 0.4s cubic-bezier(0.4,0,0.2,1) both;
+}
+@keyframes route-slide-in {
+  from { opacity: 0; transform: translateX(12px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.route-detail-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.route-stage-badge {
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.65rem;
+  border-radius: 999px;
+}
+.route-detail-period {
+  font-size: 0.68rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
+.route-detail-location {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.route-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.route-detail-role {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+.route-detail-company {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: -0.4rem;
+}
+
+.route-detail-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin-top: 0.25rem;
+  flex: 1;
+}
+.route-detail-bullets li {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: rgba(250,250,250,0.55);
+  line-height: 1.55;
+}
+.route-bullet-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+  line-height: 1.3;
+}
+
+/* Progress */
+.route-progress-bar {
+  height: 2px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: auto;
+}
+.route-progress-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.6s cubic-bezier(0.4,0,0.2,1);
+}
+.route-progress-label {
+  font-size: 0.65rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
+/* Responsive */
+@media (max-width: 840px) {
+  .route-root {
+    grid-template-columns: 1fr;
+  }
+  .route-map {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .route-svg { max-height: 280px; }
 }
