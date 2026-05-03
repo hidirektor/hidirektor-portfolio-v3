@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Hidir Eloqwnt Landing",
-  description: "Minimal landing page with Eloqwnt-style header.",
+  title: "Halil İbrahim Direktör | Software Architect",
+  description: "Halil İbrahim Direktör — Software Architect. Personal portfolio showcasing projects, skills and experience.",
 };
 
 export default function RootLayout({
