@@ -1,4 +1,5 @@
 import Header from "./components/Header";
+import MediumWidget from "./components/MediumWidget";
 
 /* ── DATA ─────────────────────────────────────────────────────────── */
 
@@ -111,6 +112,7 @@ export default function Home() {
       <Header />
 
       <main id="top" style={{ position: "relative", zIndex: 1 }}>
+        <MediumWidget />
 
         {/* ── HERO ─────────────────────────────────────────── */}
         <section className="hero" style={{ borderTop: "none" }}>
