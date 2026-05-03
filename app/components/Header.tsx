@@ -47,9 +47,13 @@ export default function Header() {
           </ul>
         </nav>
 
-        {/* CTA */}
-        <a href="mailto:hidirektor@gmail.com" className="btn btn-primary" style={{ fontSize: "0.78rem", padding: "0.55rem 1.25rem" }}>
-          Hire me
+        {/* Email shortcut */}
+        <a
+          href="mailto:hidirektor@gmail.com"
+          className="btn btn-outline"
+          style={{ fontSize: "0.78rem", padding: "0.5rem 1.1rem" }}
+        >
+          hidirektor@gmail.com
         </a>
       </div>
     </header>
