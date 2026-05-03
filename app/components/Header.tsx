@@ -2,43 +2,31 @@
 import {useEffect, useState} from "react";
 
 const navItems = [
-  { href: "#about",       label: "About" },
-  { href: "#experience",  label: "Experience" },
-  { href: "#tech",        label: "Tech Stack" },
-  { href: "#projects",    label: "Projects" },
-  { href: "#writing",     label: "Writing" },
-  { href: "#favorites",   label: "Favorites" },
-  { href: "#contact",     label: "Contact" },
+  { href: "#about",      label: "About" },
+  { href: "#experience", label: "Experience" },
+  { href: "#tech",       label: "Tech" },
+  { href: "#projects",   label: "Projects" },
+  { href: "#writing",    label: "Writing" },
+  { href: "#favorites",  label: "Favorites" },
 ];
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
-
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const fn = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", fn, { passive: true });
+    return () => window.removeEventListener("scroll", fn);
   }, []);
 
   return (
-    <header
-      className="header"
-      style={{
-        boxShadow: scrolled ? "0 4px 40px rgba(0,0,0,0.4)" : "none",
-      }}
-    >
+    <header className="header" style={{ borderBottomColor: scrolled ? "#1f1f1f" : "transparent" }}>
       <div className="header-inner">
-        {/* Logo */}
-        <a href="#top" className="header-logo">
-          <span className="header-logo-dot" aria-hidden />
-          <span className="header-logo-text">
-            HI<span>D</span>IREKTOR
-          </span>
+        <a href="#top" className="logo">
+          <span className="logo-dot" aria-hidden />
+          hidirektor
         </a>
-
-        {/* Nav */}
         <nav aria-label="Main navigation">
-          <ul className="header-nav">
+          <ul className="nav">
             {navItems.map((item) => (
               <li key={item.href}>
                 <a href={item.href}>{item.label}</a>
@@ -46,13 +34,7 @@ export default function Header() {
             ))}
           </ul>
         </nav>
-
-        {/* Email shortcut */}
-        <a
-          href="mailto:hidirektor@gmail.com"
-          className="btn btn-outline"
-          style={{ fontSize: "0.78rem", padding: "0.5rem 1.1rem" }}
-        >
+        <a href="mailto:hidirektor@gmail.com" className="header-mail">
           hidirektor@gmail.com
         </a>
       </div>
