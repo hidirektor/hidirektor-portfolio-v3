@@ -1,51 +1,36 @@
 'use client';
 
 export default function Footer() {
-  const year = new Date().getFullYear();
-
   return (
-    <footer className="border-t border-gray-100 dark:border-zinc-800 py-10 px-6 bg-white dark:bg-black transition-colors">
-      <div className="wrap flex flex-col md:flex-row items-center justify-between gap-6">
-        {/* Left */}
-        <div className="flex items-center gap-6 flex-wrap justify-center md:justify-start">
-          <a href="#top" className="flex items-center gap-2 font-bold text-sm tracking-tight text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors">
-            <span className="w-4 h-4 bg-black dark:bg-white rounded flex items-center justify-center text-[8px] font-extrabold text-white dark:text-black transition-colors">
-              HI
-            </span>
-            hidirektor
-          </a>
+    <footer className="relative w-full pt-24 md:pt-32 pb-16 md:pb-24 overflow-hidden flex flex-col items-center justify-center bg-[#050505] text-white">
+      
+      {/* Giant Text Layered Effect */}
+      <div className="relative w-full flex justify-center items-center leading-none select-none pointer-events-auto cursor-default">
+        <div className="relative w-full flex justify-center items-center">
+          
+          {/* Background Text (Relative to give height to the footer) */}
+          <div className="relative text-[20vw] md:text-[18vw] font-bold tracking-tighter text-white/5 leading-[0.75] z-0 flex whitespace-nowrap justify-center">
+            {"DİREKTÖR".split('').map((char, i) => (
+              <span key={i} className="transition-colors duration-300 hover:text-white/20">
+                {char}
+              </span>
+            ))}
+          </div>
+          
+          {/* Foreground Text (Absolute, perfectly centered on top of the background text) */}
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[8vw] md:text-[6vw] font-bold tracking-tighter text-white leading-[0.75] z-10 flex whitespace-nowrap">
+            {"Halil İbrahim".split('').map((char, i) => (
+              <span key={i} className="transition-colors duration-300 hover:text-[#E4007C]">
+                {char === ' ' ? '\u00A0' : char}
+              </span>
+            ))}
+          </div>
 
-          <span className="w-px h-4 bg-gray-200 dark:bg-zinc-800" aria-hidden />
-
-          <span className="text-xs text-gray-400 dark:text-gray-500 tracking-wide">
-            © {year}
-          </span>
-
-          <span className="text-xs text-gray-400 dark:text-gray-500">
-            Software Architect · İzmir
-          </span>
         </div>
-
-        {/* Right */}
-        <nav className="flex items-center gap-6" aria-label="Footer links">
-          {[
-            { label: 'GitHub',   href: 'https://github.com/hidirektor' },
-            { label: 'LinkedIn', href: 'https://linkedin.com/in/hidirektor' },
-            { label: 'Medium',   href: 'https://medium.com/@hidirektor' },
-            { label: 'Mail',     href: 'mailto:hidirektor@gmail.com' },
-          ].map((l) => (
-            <a
-              key={l.label}
-              href={l.href}
-              target={l.href.startsWith('http') ? '_blank' : undefined}
-              rel={l.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-              className="text-xs text-gray-400 dark:text-gray-500 hover:text-black dark:hover:text-white transition-colors tracking-wide"
-            >
-              {l.label}
-            </a>
-          ))}
-        </nav>
       </div>
+
+      {/* Bottom Gradient Fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#050505] via-[#050505]/80 to-transparent pointer-events-none z-0"></div>
     </footer>
   );
 }

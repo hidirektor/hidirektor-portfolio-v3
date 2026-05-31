@@ -1,19 +1,21 @@
 import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
 import ScrollingBanner from "./components/ScrollingBanner";
-import ServicesSection from "./components/ServicesSection";
-import CaseStudySection from "./components/CaseStudySection";
+import TrustedLogos from "./components/TrustedLogos";
+import ProjectsSection from "./components/ProjectsSection";
+import EntertainmentSection from "./components/EntertainmentSection";
 import Footer from "./components/Footer";
 
 export default function Home() {
   return (
     <>
       <Header />
-      <main id="top" className="font-sans">
+      <main id="top" className="font-sans bg-white dark:bg-[#050505] min-h-screen">
         <HeroSection />
         <ScrollingBanner />
-        <ServicesSection />
-        <CaseStudySection />
+        <TrustedLogos />
+        <ProjectsSection />
+        <EntertainmentSection />
       </main>
       <Footer />
     </>
