@@ -4,78 +4,48 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer style={{
-      borderTop: '1px solid rgba(255,255,255,0.06)',
-      padding: '2.5rem 1.75rem',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-      flexWrap: 'wrap' as const,
-      gap: '1.25rem',
-      maxWidth: '1080px',
-      margin: '0 auto',
-    }}>
-      {/* Left */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', flexWrap: 'wrap' as const }}>
-        <a
-          href="#top"
-          style={{
-            display: 'flex', alignItems: 'center', gap: '0.4rem',
-            fontWeight: 700, fontSize: '0.82rem', letterSpacing: '-0.02em',
-            color: 'rgba(255,255,255,0.45)', textDecoration: 'none',
-            transition: 'color 0.15s',
-          }}
-          onMouseEnter={e => (e.currentTarget.style.color = '#fafafa')}
-          onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.45)')}
-        >
-          <span style={{
-            width: '16px', height: '16px',
-            background: 'linear-gradient(135deg,#00d4ff,#7c3aed)',
-            borderRadius: '4px', flexShrink: 0,
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontSize: '0.48rem', fontWeight: 800, color: '#000',
-          }}>HI</span>
-          hidirektor
-        </a>
-
-        <span style={{ width: '1px', height: '14px', background: 'rgba(255,255,255,0.08)' }} aria-hidden />
-
-        <span style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.2)', letterSpacing: '0.02em' }}>
-          © {year}
-        </span>
-
-        <span style={{ fontSize: '0.72rem', color: 'rgba(255,255,255,0.2)' }}>
-          Software Architect · İzmir 🚴
-        </span>
-      </div>
-
-      {/* Right */}
-      <nav style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }} aria-label="Footer links">
-        {[
-          { label: 'GitHub',   href: 'https://github.com/hidirektor' },
-          { label: 'LinkedIn', href: 'https://linkedin.com/in/hidirektor' },
-          { label: 'Medium',   href: 'https://medium.com/@hidirektor' },
-          { label: 'Mail',     href: 'mailto:hidirektor@gmail.com' },
-        ].map((l) => (
-          <a
-            key={l.label}
-            href={l.href}
-            target={l.href.startsWith('http') ? '_blank' : undefined}
-            rel={l.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-            style={{
-              fontSize: '0.75rem',
-              color: 'rgba(255,255,255,0.28)',
-              textDecoration: 'none',
-              transition: 'color 0.15s',
-              letterSpacing: '0.01em',
-            }}
-            onMouseEnter={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.75)')}
-            onMouseLeave={e => (e.currentTarget.style.color = 'rgba(255,255,255,0.28)')}
-          >
-            {l.label}
+    <footer className="border-t border-gray-100 dark:border-zinc-800 py-10 px-6 bg-white dark:bg-black transition-colors">
+      <div className="wrap flex flex-col md:flex-row items-center justify-between gap-6">
+        {/* Left */}
+        <div className="flex items-center gap-6 flex-wrap justify-center md:justify-start">
+          <a href="#top" className="flex items-center gap-2 font-bold text-sm tracking-tight text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors">
+            <span className="w-4 h-4 bg-black dark:bg-white rounded flex items-center justify-center text-[8px] font-extrabold text-white dark:text-black transition-colors">
+              HI
+            </span>
+            hidirektor
           </a>
-        ))}
-      </nav>
+
+          <span className="w-px h-4 bg-gray-200 dark:bg-zinc-800" aria-hidden />
+
+          <span className="text-xs text-gray-400 dark:text-gray-500 tracking-wide">
+            © {year}
+          </span>
+
+          <span className="text-xs text-gray-400 dark:text-gray-500">
+            Software Architect · İzmir
+          </span>
+        </div>
+
+        {/* Right */}
+        <nav className="flex items-center gap-6" aria-label="Footer links">
+          {[
+            { label: 'GitHub',   href: 'https://github.com/hidirektor' },
+            { label: 'LinkedIn', href: 'https://linkedin.com/in/hidirektor' },
+            { label: 'Medium',   href: 'https://medium.com/@hidirektor' },
+            { label: 'Mail',     href: 'mailto:hidirektor@gmail.com' },
+          ].map((l) => (
+            <a
+              key={l.label}
+              href={l.href}
+              target={l.href.startsWith('http') ? '_blank' : undefined}
+              rel={l.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+              className="text-xs text-gray-400 dark:text-gray-500 hover:text-black dark:hover:text-white transition-colors tracking-wide"
+            >
+              {l.label}
+            </a>
+          ))}
+        </nav>
+      </div>
     </footer>
   );
 }

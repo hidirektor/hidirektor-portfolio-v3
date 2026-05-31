@@ -35,24 +35,24 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section className="py-24 bg-white" id="services">
+    <section className="py-24" id="services">
       <div className="wrap flex flex-col gap-12">
         {/* Header Row */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div>
-            <p className="text-xs font-bold tracking-widest text-gray-400 mb-4 uppercase">
+            <p className="text-xs font-bold tracking-widest text-gray-400 dark:text-gray-500 mb-4 uppercase">
               — My Services ?
             </p>
-            <h2 className="text-4xl md:text-[3.5rem] font-bold leading-none tracking-tight">
-              WHAT I'M <br /> OFFERING
+            <h2 className="text-4xl md:text-[3.5rem] font-bold leading-none tracking-tight text-black dark:text-white">
+              WHAT I&apos;M <br /> OFFERING
             </h2>
           </div>
           
           <div className="flex flex-col md:flex-row md:items-center gap-6 max-w-md">
-            <p className="text-[13px] text-gray-500 leading-relaxed">
+            <p className="text-[13px] text-gray-500 dark:text-gray-400 leading-relaxed">
               From low-level embedded firmware to high-level cloud architecture, I build complete end-to-end solutions that are scalable, reliable, and performant.
             </p>
-            <button className="bg-black text-white px-8 py-3.5 rounded-full font-medium text-[13px] whitespace-nowrap hover:bg-gray-800 transition-colors flex-shrink-0">
+            <button className="bg-black dark:bg-white text-white dark:text-black px-8 py-3.5 rounded-full font-medium text-[13px] whitespace-nowrap hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors flex-shrink-0">
               ALL SERVICE
             </button>
           </div>
@@ -65,10 +65,12 @@ export default function ServicesSection() {
               key={i}
               className={`
                 flex flex-col justify-between p-10 min-h-[320px] transition-transform hover:-translate-y-2
-                ${s.dark ? 'bg-[#0a0a0a] text-white' : 'bg-white text-black border border-gray-200'}
+                ${s.dark 
+                  ? 'bg-[#0a0a0a] dark:bg-zinc-800 text-white' 
+                  : 'bg-white dark:bg-zinc-900 text-black dark:text-white border border-gray-200 dark:border-zinc-800'}
               `}
             >
-              <div className={`mb-12 ${s.dark ? 'text-white' : 'text-black'}`}>
+              <div className={`mb-12 ${s.dark ? 'text-white' : 'text-black dark:text-white'}`}>
                 {s.icon}
               </div>
               
@@ -76,7 +78,7 @@ export default function ServicesSection() {
                 <h3 className="text-xl font-bold tracking-tight leading-tight mb-4 max-w-[200px]">
                   {s.title}
                 </h3>
-                <a href="#contact" className={`text-xs font-semibold tracking-wider flex items-center gap-2 ${s.dark ? 'text-gray-400 hover:text-white' : 'text-gray-500 hover:text-black'} transition-colors`}>
+                <a href="#contact" className={`text-xs font-semibold tracking-wider flex items-center gap-2 ${s.dark ? 'text-gray-400 hover:text-white dark:text-gray-300 dark:hover:text-white' : 'text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white'} transition-colors`}>
                   READ MORE
                   <span className="text-[10px]">→</span>
                 </a>

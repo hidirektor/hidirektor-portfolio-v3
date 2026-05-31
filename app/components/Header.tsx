@@ -1,51 +1,54 @@
 'use client';
 
 import Link from 'next/link';
+import SettingsWidget from './SettingsWidget';
 
 export default function Header() {
   return (
-    <header className="absolute top-0 left-0 right-0 z-50 pt-8 pb-4">
+    <header className="absolute top-0 left-0 right-0 z-50 pt-16 pb-4">
       <div className="wrap flex items-start justify-between">
         {/* Logo */}
-        <Link href="/" className="text-2xl font-bold tracking-tight">
-          it's me
+        <Link href="/" className="text-2xl font-medium tracking-tight border-b-2 border-black dark:border-white pb-1">
+          it&apos;s me
         </Link>
 
         {/* Navigation */}
         <nav className="hidden md:flex items-start gap-12">
-          <Link href="#projects" className="group flex flex-col items-start relative">
-            <span className="font-semibold text-[15px] flex items-center gap-1">
-              My Projects
-              <span className="text-xs transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5">↗</span>
-            </span>
-            <span className="text-[11px] text-gray-500 max-w-[120px] leading-tight mt-1">
-              See all of nice project I have done.
+          <Link href="#projects" className="group flex flex-col items-start relative w-[160px]">
+            {/* Top Border & Title row */}
+            <div className="w-full flex items-center justify-between border-t border-black dark:border-white pt-2 mb-1">
+              <span className="font-bold text-[14px]">My Projects</span>
+              <span className="text-[10px] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5">↗</span>
+            </div>
+            {/* Subtitle */}
+            <span className="text-[11px] text-gray-500 leading-tight">
+              See all of nice project<br/>i have done.
             </span>
           </Link>
           
-          <Link href="#about" className="group flex flex-col items-start relative">
-            <span className="font-semibold text-[15px] flex items-center gap-1">
-              About Me
-              <span className="text-xs transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5">↗</span>
-            </span>
-            <span className="text-[11px] text-gray-500 max-w-[120px] leading-tight mt-1">
-              Learn about my self what i do
+          <Link href="#about" className="group flex flex-col items-start relative w-[150px]">
+            <div className="w-full flex items-center justify-between border-t border-black dark:border-white pt-2 mb-1">
+              <span className="font-bold text-[14px]">About Me</span>
+              <span className="text-[10px] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5">↗</span>
+            </div>
+            <span className="text-[11px] text-gray-500 leading-tight">
+              Learn about my self<br/>what i do
             </span>
           </Link>
 
-          <Link href="#contact" className="group flex flex-col items-start relative">
-            <span className="font-semibold text-[15px] flex items-center gap-1">
-              Contact me
-              <span className="text-xs transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5">↗</span>
-            </span>
-            <span className="text-[11px] text-gray-500 max-w-[140px] leading-tight mt-1">
+          <Link href="#contact" className="group flex flex-col items-start relative w-[170px]">
+            <div className="w-full flex items-center justify-between border-t border-black dark:border-white pt-2 mb-1">
+              <span className="font-bold text-[14px]">Contact me</span>
+              <span className="text-[10px] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5">↗</span>
+            </div>
+            <span className="text-[11px] text-gray-500 leading-tight">
               hidirektor@gmail.com
             </span>
           </Link>
         </nav>
-        
-        {/* Mobile menu could go here, omitting for simplicity of desktop mockup */}
       </div>
+
+      <SettingsWidget />
     </header>
   );
 }

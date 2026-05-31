@@ -14,8 +14,8 @@ export default function ExperienceList() {
   return (
     <div className="flex flex-col w-full max-w-3xl mx-auto md:mx-0 md:ml-auto">
       <div className="text-center mb-10">
-        <h2 className="text-2xl font-bold tracking-tight mb-2">EXPERIENCE</h2>
-        <p className="text-xs text-gray-500 max-w-sm mx-auto">
+        <h2 className="text-2xl font-bold tracking-tight mb-2 text-black dark:text-white">EXPERIENCE</h2>
+        <p className="text-xs text-gray-500 dark:text-gray-400 max-w-sm mx-auto">
           A track record of leading teams and shipping scalable products across various industries.
         </p>
       </div>
@@ -26,19 +26,23 @@ export default function ExperienceList() {
             key={i}
             className={`
               flex flex-col md:flex-row md:items-center justify-between p-6 border transition-colors
-              ${exp.active ? 'bg-[#111] border-[#111] text-white' : 'bg-white border-gray-200 text-black hover:border-gray-300'}
+              ${exp.active 
+                ? 'bg-[#111] dark:bg-zinc-800 border-[#111] dark:border-zinc-800 text-white' 
+                : 'bg-white dark:bg-zinc-900 border-gray-200 dark:border-zinc-800 text-black dark:text-white hover:border-gray-300 dark:hover:border-zinc-600'}
             `}
           >
             <div>
               <h3 className="font-bold text-[17px] mb-1 tracking-tight">{exp.role}</h3>
-              <p className={`text-[13px] ${exp.active ? 'text-gray-400' : 'text-gray-500'}`}>
+              <p className={`text-[13px] ${exp.active ? 'text-gray-400 dark:text-gray-300' : 'text-gray-500 dark:text-gray-400'}`}>
                 {exp.company}
               </p>
             </div>
             
             <div className={`
               mt-4 md:mt-0 text-[10px] font-bold tracking-widest uppercase border-l pl-4
-              ${exp.active ? 'border-gray-700 text-gray-300' : 'border-gray-200 text-gray-600'}
+              ${exp.active 
+                ? 'border-gray-700 dark:border-zinc-700 text-gray-300 dark:text-gray-200' 
+                : 'border-gray-200 dark:border-zinc-700 text-gray-600 dark:text-gray-400'}
             `}>
               JOB DURATION - {exp.period}
             </div>
