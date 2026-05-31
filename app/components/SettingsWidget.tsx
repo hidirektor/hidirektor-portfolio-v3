@@ -1,13 +1,13 @@
 'use client';
 
 import {useEffect, useState} from 'react';
+import {useLanguage} from '../context/LanguageContext';
 
 export default function SettingsWidget() {
-  const [lang, setLang] = useState('EN');
+  const { language, setLanguage } = useLanguage();
   const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
-    // Check initial theme state on mount
     setIsDark(document.documentElement.classList.contains('dark'));
   }, []);
 
@@ -20,6 +20,8 @@ export default function SettingsWidget() {
       setIsDark(true);
     }
   };
+
+  const langs = ['en', 'tr', 'de'] as const;
 
   return (
     <div className="preferences-widget-btn fixed bottom-12 right-0 z-[9999] h-14 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 shadow-2xl transition-all duration-500 ease-in-out flex items-center overflow-hidden cursor-pointer w-14 rounded-l-[1rem]">
@@ -63,12 +65,12 @@ export default function SettingsWidget() {
           </svg>
           
           <div className="flex bg-black/5 dark:bg-white/10 rounded-full p-1 gap-1">
-            {['EN', 'TR', 'DE'].map((l) => (
+            {langs.map((l) => (
               <button 
                 key={l}
-                onClick={() => setLang(l)}
-                className={`px-3 py-1.5 text-xs font-bold rounded-full transition-all duration-300 ${
-                  lang === l 
+                onClick={() => setLanguage(l)}
+                className={`px-3 py-1.5 text-xs font-bold rounded-full transition-all duration-300 uppercase ${
+                  language === l 
                     ? 'bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 shadow-md' 
                     : 'text-zinc-600 dark:text-zinc-400 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#FBDD09] hover:via-[#E4007C] hover:to-[#D30026]'
                 }`}
