@@ -1,6 +1,10 @@
 'use client';
 
+import {useLanguage} from '../context/LanguageContext';
+
 export default function EntertainmentSection() {
+  const { t } = useLanguage();
+
   return (
     <section className="py-32 bg-[#050505] relative overflow-hidden border-t border-white/5">
       
@@ -9,22 +13,24 @@ export default function EntertainmentSection() {
 
       <div className="wrap relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
         <div className="lg:col-span-5">
-          <p className="text-[#FBDD09] text-sm font-bold tracking-widest uppercase mb-4">Beyond Code</p>
+          <p className="text-[#FBDD09] text-sm font-bold tracking-widest uppercase mb-4">{t('entertainment.tag')}</p>
           <h2 className="text-4xl md:text-6xl font-black tracking-tight mb-6 text-white font-display leading-[1.1]">
-            Fueling The<br/>Creativity
+            {t('entertainment.title').split(' ').map((word, i, arr) => 
+               i === arr.length - 1 ? <span key={i}><br/>{word}</span> : word + ' '
+            )}
           </h2>
           <p className="text-white/50 text-lg mb-10 font-light leading-relaxed">
-            When I'm not architecting software or soldering IoT circuits, you'll probably find me cycling long distances or vibing to my favorite playlists. Here is what keeps me fueled.
+            {t('entertainment.description')}
           </p>
           
           <div className="flex flex-wrap gap-4 mb-8">
             <div className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/[0.03] border border-white/10 backdrop-blur-md">
               <span className="text-2xl">🚴‍♂️</span>
-              <span className="text-sm font-bold text-white tracking-wide">Long-Distance Cycling</span>
+              <span className="text-sm font-bold text-white tracking-wide">{t('entertainment.cycling')}</span>
             </div>
             <div className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/[0.03] border border-white/10 backdrop-blur-md">
               <span className="text-2xl">🎧</span>
-              <span className="text-sm font-bold text-white tracking-wide">Electronic & Rock</span>
+              <span className="text-sm font-bold text-white tracking-wide">{t('entertainment.music')}</span>
             </div>
           </div>
         </div>
@@ -43,9 +49,9 @@ export default function EntertainmentSection() {
                 <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center mb-6 border border-white/20">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-2 font-display">Favorite Playlist</h3>
+                <h3 className="text-2xl font-bold text-white mb-2 font-display">{t('entertainment.playlistTitle')}</h3>
                 <p className="text-sm text-white/50 max-w-sm">
-                  Embed your Spotify or Apple Music playlist here to share your vibes with visitors.
+                  {t('entertainment.playlistDesc')}
                 </p>
               </div>
             </div>

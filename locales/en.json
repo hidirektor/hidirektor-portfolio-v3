@@ -1,10 +1,11 @@
 {
   "header": {
-    "home": "Home",
-    "projects": "Projects",
-    "about": "About",
-    "contact": "Contact",
-    "downloadCv": "Download CV"
+    "myProjects": "My Projects",
+    "myProjectsDesc": "See all of nice project<br/>i have done.",
+    "aboutMe": "About Me",
+    "aboutMeDesc": "Learn about my self<br/>what i do",
+    "contactMe": "Contact me",
+    "contactMeDesc": "hidirektor@gmail.com"
   },
   "hero": {
     "subtitle": "SOFTWARE ARCHITECT",

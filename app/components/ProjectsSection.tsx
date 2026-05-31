@@ -1,47 +1,51 @@
 'use client';
 
-const projects = [
-  {
-    title: 'Class Roll Call Management System',
-    date: 'Oct 2025 - Nov 2025',
-    description: 'A real-time attendance tracking system for educational institutions featuring dynamic QR codes, robust backend API, Redis caching, and an administrative dashboard.',
-    tech: ['Next.js', 'React', 'Node.js', 'MySQL', 'Redis', 'Docker'],
-    links: [
-      { label: 'Live', url: 'https://kampus.mcbu.edu.tr' },
-      { label: 'Backend', url: 'https://github.com/motivexintelligence/class-roll-call-backend-api-v2' },
-      { label: 'Frontend', url: 'https://github.com/motivexintelligence/class-roll-call-web' }
-    ]
-  },
-  {
-    title: 'Open-Source Web 3.0 & IoT Mobile Integration',
-    date: 'Mar 2024 - May 2025',
-    description: 'TÜBİTAK 2209-B Awarded Project. A modular IIoT platform for industrial systems enabling real-time data collection from PLC using STM32, Modbus, FreeRTOS, and Node.js.',
-    tech: ['C++', 'FreeRTOS', 'Node.js', 'MQTT', 'Modbus'],
-    links: []
-  },
-  {
-    title: 'Delivery Boy Mobile Application',
-    date: 'Dec 2023 - Apr 2024',
-    description: 'Real-time order tracking service for e-commerce with Spring Boot backend, native Android (Java) app, and native iOS (Swift) app for cross-platform delivery management.',
-    tech: ['Java', 'Spring Boot', 'Node.js', 'Swift', 'Android'],
-    links: [
-      { label: 'API', url: 'https://github.com/hidirektor/gelkurye-backend-api' },
-      { label: 'Android', url: 'https://github.com/hidirektor/gelkurye-mobile-android' },
-      { label: 'Web', url: 'https://github.com/hidirektor/gelkurye-web' }
-    ]
-  },
-  {
-    title: 'TFEncryption Chat',
-    date: 'Nov 2021 - Dec 2021',
-    description: 'A desktop chat application utilizing WebRTC, Cactoos, and Concurrency. Allows secure file and message transfers encrypted via SPN, SHA256, or MD5 algorithms.',
-    tech: ['Java', 'JavaFX', 'WebRTC'],
-    links: [
-      { label: 'GitHub', url: 'https://github.com/hidirektor/TFEncrpytion' }
-    ]
-  }
-];
+import {useLanguage} from '../context/LanguageContext';
 
 export default function ProjectsSection() {
+  const { t } = useLanguage();
+
+  const projects = [
+    {
+      title: t('projects.items.project1.title'),
+      date: 'Oct 2025 - Nov 2025',
+      description: t('projects.items.project1.description'),
+      tech: ['Next.js', 'React', 'Node.js', 'MySQL', 'Redis', 'Docker'],
+      links: [
+        { label: 'Live', url: 'https://kampus.mcbu.edu.tr' },
+        { label: 'Backend', url: 'https://github.com/motivexintelligence/class-roll-call-backend-api-v2' },
+        { label: 'Frontend', url: 'https://github.com/motivexintelligence/class-roll-call-web' }
+      ]
+    },
+    {
+      title: t('projects.items.project2.title'),
+      date: 'Mar 2024 - May 2025',
+      description: t('projects.items.project2.description'),
+      tech: ['C++', 'FreeRTOS', 'Node.js', 'MQTT', 'Modbus'],
+      links: []
+    },
+    {
+      title: t('projects.items.project3.title'),
+      date: 'Dec 2023 - Apr 2024',
+      description: t('projects.items.project3.description'),
+      tech: ['Java', 'Spring Boot', 'Node.js', 'Swift', 'Android'],
+      links: [
+        { label: 'API', url: 'https://github.com/hidirektor/gelkurye-backend-api' },
+        { label: 'Android', url: 'https://github.com/hidirektor/gelkurye-mobile-android' },
+        { label: 'Web', url: 'https://github.com/hidirektor/gelkurye-web' }
+      ]
+    },
+    {
+      title: t('projects.items.project4.title'),
+      date: 'Nov 2021 - Dec 2021',
+      description: t('projects.items.project4.description'),
+      tech: ['Java', 'JavaFX', 'WebRTC'],
+      links: [
+        { label: 'GitHub', url: 'https://github.com/hidirektor/TFEncrpytion' }
+      ]
+    }
+  ];
+
   return (
     <section id="projects" className="py-32 bg-[#050505] relative">
       {/* Background glow */}
@@ -49,12 +53,12 @@ export default function ProjectsSection() {
       
       <div className="wrap relative z-10">
         <div className="mb-20 flex flex-col items-center text-center">
-          <p className="text-[#E4007C] text-sm font-bold tracking-widest uppercase mb-4">Portfolio</p>
+          <p className="text-[#E4007C] text-sm font-bold tracking-widest uppercase mb-4">{t('projects.tag')}</p>
           <h2 className="text-4xl md:text-6xl font-black tracking-tight mb-6 text-white font-display">
-            Current Projects
+            {t('projects.title')}
           </h2>
           <p className="text-white/50 max-w-2xl text-lg font-light leading-relaxed">
-            A selection of my recent technical endeavors, ranging from IoT hardware integrations to full-stack scalable web applications.
+            {t('projects.description')}
           </p>
         </div>
 
