@@ -10,14 +10,14 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main id="top" className="font-sans bg-white dark:bg-[#050505] min-h-screen">
+      <main id="top" className="font-sans bg-white dark:bg-[#050505] min-h-screen overflow-x-hidden">
         <HeroSection />
         <ScrollingBanner />
         <TrustedLogos />
         <ProjectsSection />
         <EntertainmentSection />
+        <Footer />
       </main>
-      <Footer />
     </>
   );
 }

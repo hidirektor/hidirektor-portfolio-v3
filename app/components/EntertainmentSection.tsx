@@ -6,7 +6,7 @@ export default function EntertainmentSection() {
   const { t } = useLanguage();
 
   return (
-    <section className="py-32 bg-[#050505] relative overflow-hidden border-t border-white/5">
+    <section className="py-32 relative border-t border-white/5">
       
       {/* Decorative gradient blob */}
       <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-[#E4007C]/10 to-[#FBDD09]/5 blur-[120px] rounded-full pointer-events-none z-0"></div>
