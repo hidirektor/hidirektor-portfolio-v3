@@ -14,34 +14,34 @@ export default function Header() {
 
         {/* Navigation */}
         <nav className="hidden md:flex items-start gap-12">
-          <Link href="#projects" className="group flex flex-col items-start relative w-[160px]">
+          <Link href="#projects" className="group flex flex-col items-start relative w-[170px]">
             {/* Top Border & Title row */}
-            <div className="w-full flex items-center justify-between border-t border-black dark:border-white pt-2 mb-1">
-              <span className="font-bold text-[14px]">My Projects</span>
-              <span className="text-[10px] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5">↗</span>
+            <div className="w-full flex items-center justify-between border-t border-black dark:border-white pt-4 mb-2">
+              <span className="font-bold text-[16px]">My Projects</span>
+              <span className="text-[12px] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5">↗</span>
             </div>
             {/* Subtitle */}
-            <span className="text-[11px] text-gray-500 leading-tight">
+            <span className="text-[12px] text-gray-500 leading-tight">
               See all of nice project<br/>i have done.
             </span>
           </Link>
           
-          <Link href="#about" className="group flex flex-col items-start relative w-[150px]">
-            <div className="w-full flex items-center justify-between border-t border-black dark:border-white pt-2 mb-1">
-              <span className="font-bold text-[14px]">About Me</span>
-              <span className="text-[10px] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5">↗</span>
+          <Link href="#about" className="group flex flex-col items-start relative w-[160px]">
+            <div className="w-full flex items-center justify-between border-t border-black dark:border-white pt-4 mb-2">
+              <span className="font-bold text-[16px]">About Me</span>
+              <span className="text-[12px] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5">↗</span>
             </div>
-            <span className="text-[11px] text-gray-500 leading-tight">
+            <span className="text-[12px] text-gray-500 leading-tight">
               Learn about my self<br/>what i do
             </span>
           </Link>
 
-          <Link href="#contact" className="group flex flex-col items-start relative w-[170px]">
-            <div className="w-full flex items-center justify-between border-t border-black dark:border-white pt-2 mb-1">
-              <span className="font-bold text-[14px]">Contact me</span>
-              <span className="text-[10px] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5">↗</span>
+          <Link href="#contact" className="group flex flex-col items-start relative w-[180px]">
+            <div className="w-full flex items-center justify-between border-t border-black dark:border-white pt-4 mb-2">
+              <span className="font-bold text-[16px]">Contact me</span>
+              <span className="text-[12px] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5">↗</span>
             </div>
-            <span className="text-[11px] text-gray-500 leading-tight">
+            <span className="text-[12px] text-gray-500 leading-tight">
               hidirektor@gmail.com
             </span>
           </Link>
