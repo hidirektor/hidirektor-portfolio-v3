@@ -1,345 +1,121 @@
 import Header from "./components/Header";
-import MediumWidget from "./components/MediumWidget";
-import CareerRoute from "./components/CareerRoute";
+import HeroSection from "./components/HeroSection";
+import ScrollingBanner from "./components/ScrollingBanner";
+import ServicesSection from "./components/ServicesSection";
+import ExperienceList from "./components/ExperienceList";
 import Footer from "./components/Footer";
 
-/* ── DATA ─────────────────────────────────────────────────────────── */
-
-const experience = [
-  { period: "Nov 2025 – Present", role: "Software Team Lead", company: "Werover · İzmir, Turkey",
-    bullets: ["Led software team focusing on innovation and scalable system design.", "Built and shipped impactful features for real-world energy monitoring.", "Established engineering culture: code reviews, documentation, CI/CD."] },
-  { period: "Apr – Nov 2025", role: "Full Stack Developer", company: "Werover · İzmir, Turkey",
-    bullets: ["Node.js/Express backend services, Docker + GitHub Actions CI/CD.", "AWS deployments: ECS Fargate, RDS, S3, CloudWatch.", "Next.js SSR dashboards for real-time energy monitoring.", "IoT device integration for real-time data ingestion."] },
-  { period: "Aug 2024 – Mar 2025", role: "Native Mobile Developer", company: "Dynamic Brain Neurotechnology · Samsun",
-    bullets: ["Cross-platform tDCS device control apps in Java, Kotlin, Swift, SwiftUI.", "OTA firmware update management and in-app exam system."] },
-  { period: "Feb – Jun 2024", role: "Software Team Leader", company: "Woma Advertising · Istanbul",
-    bullets: ["Led ML-powered mobile apps — 40% user engagement increase.", "Reduced codebase 30% via Node.js + Angular, designed CI/CD pipeline."] },
-  { period: "Dec 2023 – Feb 2024", role: "Backend Developer", company: "Woma Advertising · Istanbul",
-    bullets: ["40% faster data processing via Angular + Node.js redesign.", "Microservices migration with zero downtime, Jenkins CI/CD."] },
-  { period: "May – Nov 2023", role: "R&D Engineer", company: "Önder Lift · Manisa, Turkey",
-    bullets: ["Optimized lift control system for ESP-XL — 25% faster processing.", "IoT integration for remote diagnostics, 20% fewer service visits."] },
-  { period: "Jan 2020 – Jan 2023", role: "Backend Developer", company: "Lebara Mobile · London, UK",
-    bullets: ["API gateway handling 10,000+ req/min on Azure.", "React/Redux refactor — 50% performance improvement."] },
-];
-
-const techStack = [
-  { cat: "Languages",    vals: "Java · Kotlin · Swift · JavaScript · TypeScript · C++ · Rust · Node.js" },
-  { cat: "Mobile",       vals: "Android (XML, Jetpack Compose) · iOS (SwiftUI) · React Native" },
-  { cat: "Backend",      vals: "Express · Next.js · Spring Boot · REST · WebSockets · MQTT" },
-  { cat: "Databases",    vals: "MySQL · PostgreSQL · MongoDB · Redis · Firebase · Sequelize" },
-  { cat: "Cloud",        vals: "AWS (ECS, RDS, S3) · Azure · GCP · Docker · Kubernetes · GitHub Actions" },
-  { cat: "Embedded",     vals: "STM32 · ESP32 · FreeRTOS · Modbus · SPI · I2C · UART · ARM Mbed" },
-];
-
-const projects = [
-  { title: "TÜBİTAK 2242 | DeepCompressLink",
-    period: "Ongoing", pending: true,
-    subtitle: "Delay-Tolerant Adaptive Data Compression Protocol for CubeSat Telemetry",
-    desc: "Designing a DTN-compatible stateless compression protocol for CubeSat and deep-space telemetry, validated in SimPy-based simulations across LEO, lunar orbit, and Mars scenarios.",
-    tools: ["Python", "SimPy", "DTN", "CubeSat"], github: "https://github.com/hidirektor" },
-  { title: "TEKNOFEST | ONYX Thermal-Hydraulic Analysis",
-    period: "Ongoing", pending: true,
-    subtitle: "Thermal-Hydraulic Analysis Software for SMR/MMR Cooling Loops and Reactor Core",
-    desc: "Team ONYX: C++ simulation engine with Node.js backend and Redis caching to analyze temperature, pressure drop, flow rate, and power output — validated against IAEA/OECD benchmarks.",
-    tools: ["C++", "Node.js", "Redis", "React Native"], github: "https://github.com/hidirektor" },
-  { title: "TÜBİTAK 2209-B | CompressM2M",
-    period: "Ongoing", pending: true,
-    subtitle: "Adaptive M2M Data Compression Protocol for Low-Power IoT Devices",
-    desc: "Lightweight lossless adaptive compression protocol on ESP32-S3 to reduce payload size and energy usage in LoRaWAN and NB-IoT based M2M communication.",
-    tools: ["C++", "ESP32-S3", "LoRaWAN", "NB-IoT"], github: "https://github.com/hidirektor" },
-  { title: "Class Roll Call Management System",
-    period: "Oct – Nov 2025", pending: false, subtitle: "",
-    desc: "Real-time attendance tracking with dynamic QR codes, device fingerprinting, OTP auth and Excel export analytics.",
-    tools: ["Next.js", "Node.js", "MySQL", "Redis", "Docker"], github: "https://github.com/hidirektor" },
-  { title: "Open-Source Web 3.0 IIoT Platform",
-    period: "Mar 2024 – May 2025", pending: false, subtitle: "",
-    desc: "TÜBİTAK-funded IIoT platform for industrial PLCs — STM32/FreeRTOS firmware, Node.js cloud validated at 10k data points/min.",
-    tools: ["C++", "FreeRTOS", "STM32", "Node.js", "MQTT"], github: "https://github.com/hidirektor" },
-  { title: "Delivery Boy Mobile Application",
-    period: "Dec 2023 – Apr 2024", pending: false, subtitle: "",
-    desc: "Cross-platform e-commerce ecosystem: Spring Boot tracking service, native Android (Java) and iOS (Swift) apps.",
-    tools: ["Java", "Spring Boot", "Swift", "Node.js"], github: "https://github.com/hidirektor" },
-  { title: "TFEncryption",
-    period: "Nov – Dec 2021", pending: false, subtitle: "",
-    desc: "Encrypted P2P chat with WebRTC supporting SPN, SHA256 and MD5 encryption. JavaFX desktop UI.",
-    tools: ["Java", "JavaFX", "WebRTC"], github: "https://github.com/hidirektor" },
-];
-
-const mediumArticles = [
-  { title: "MQTT vs Alternatives: Choosing the Right Protocol for Industrial IoT",
-    desc: "Comparing MQTT, AMQP, CoAP, WebSockets and OPC-UA on latency, bandwidth, QoS and reliability.", date: "2025", href: "https://medium.com/@hidirektor" },
-  { title: "Building Scalable Embedded Systems with FreeRTOS and STM32",
-    desc: "How I reduced CPU load 32% using DMA-based serial communication in a production IIoT project.", date: "2024", href: "https://medium.com/@hidirektor" },
-  { title: "Zero-Downtime Database Migrations in Microservices",
-    desc: "Practical strategies for migrating monolithic databases to microservices without service interruption.", date: "2024", href: "https://medium.com/@hidirektor" },
-];
-
-const linkedinPosts = [
-  { title: "Why IoT and Cycling are the Same Problem",
-    desc: "Every long-distance ride and every distributed system share one truth: efficiency over raw power.", date: "Apr 2025", href: "https://linkedin.com/in/hidirektor" },
-  { title: "6 Months at Werover: Building an Energy Platform",
-    desc: "From Node.js monolith to AWS microservices — the architectural decisions and lessons.", date: "Nov 2025", href: "https://linkedin.com/in/hidirektor" },
-  { title: "From Mechatronics to Software Architecture",
-    desc: "How an engineering background gives an unfair advantage in hardware-software interfaces.", date: "Mar 2025", href: "https://linkedin.com/in/hidirektor" },
-];
-
-const favorites = [
-  { e: "🎬", name: "Interstellar",              meta: "Film · Sci-Fi" },
-  { e: "🎬", name: "The Martian",               meta: "Film · Sci-Fi" },
-  { e: "🎬", name: "Ex Machina",                meta: "Film · AI" },
-  { e: "📺", name: "Black Mirror",              meta: "Series · Tech" },
-  { e: "📺", name: "Westworld",                 meta: "Series · AI" },
-  { e: "📺", name: "Silicon Valley",            meta: "Series · Comedy" },
-  { e: "📚", name: "Clean Code",                meta: "Book · Engineering" },
-  { e: "📚", name: "The Pragmatic Programmer",  meta: "Book · Craft" },
-  { e: "🎵", name: "Hans Zimmer",               meta: "Music · Cinematic" },
-  { e: "🚴", name: "Trans Anatolia Route",      meta: "Cycling · Dream Route" },
-  { e: "🚴", name: "İzmir – Çeşme",            meta: "Cycling · Local Favorite" },
-  { e: "🌍", name: "Open Source",               meta: "Passion · Building" },
-];
-
-/* ── PAGE ─────────────────────────────────────────────────────────── */
-
 export default function Home() {
+  const projects = [
+    { 
+      title: "DeepCompressLink",
+      category: "AEROSPACE",
+      desc: "Delay-Tolerant Adaptive Data Compression Protocol for CubeSat Telemetry.",
+      img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop"
+    },
+    { 
+      title: "ONYX Thermal-Hydraulic",
+      category: "SIMULATION",
+      desc: "Thermal-Hydraulic Analysis Software for SMR/MMR Cooling Loops.",
+      img: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop"
+    },
+    { 
+      title: "CompressM2M",
+      category: "IoT",
+      desc: "Adaptive M2M Data Compression Protocol for Low-Power IoT Devices.",
+      img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format&fit=crop"
+    }
+  ];
+
   return (
     <>
-      <div
-        aria-hidden
-        style={{
-          position: "fixed", inset: 0, zIndex: 0, pointerEvents: "none",
-          background: "radial-gradient(ellipse at 30% 20%, rgba(0,100,180,0.04) 0%, transparent 60%)",
-        }}
-      />
-
       <Header />
-
-      <main id="top" style={{ position: "relative", zIndex: 1 }}>
-        <MediumWidget />
-
-        {/* ── HERO ─────────────────────────────────────────── */}
-        <section className="hero" style={{ borderTop: "none" }}>
-          <div
-            className="hero-bg"
-            aria-hidden
-            style={{ backgroundPosition: "70% center" }}
-          />
-          <div className="wrap hero-inner" style={{ paddingTop: "2rem", paddingBottom: "2rem" }}>
-            <p className="anim-1" style={{ fontSize: "0.75rem", color: "var(--muted)", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "1.5rem" }}>
-              Software Architect · İzmir, Turkey
-            </p>
-            <h1 className="hero-name anim-2">
-              Halil İbrahim<br />
-              <em>Direktör</em>
-            </h1>
-            <p className="hero-tagline anim-3">
-              Building scalable systems from embedded firmware to cloud infrastructure.
-              Mechatronics-turned-software engineer — and a semi-professional cyclist.
-            </p>
-            <div className="hero-links anim-4">
-              <a href="mailto:hidirektor@gmail.com" className="hero-link-primary">
-                hidirektor@gmail.com
-              </a>
-              <a href="https://github.com/hidirektor" target="_blank" rel="noopener noreferrer" className="hero-link-muted">GitHub ↗</a>
-              <a href="https://linkedin.com/in/hidirektor" target="_blank" rel="noopener noreferrer" className="hero-link-muted">LinkedIn ↗</a>
-              <a href="https://medium.com/@hidirektor" target="_blank" rel="noopener noreferrer" className="hero-link-muted">Medium ↗</a>
+      <main id="top" className="bg-white text-black font-sans">
+        <HeroSection />
+        <ScrollingBanner />
+        
+        {/* Socials Bar */}
+        <div className="border-b border-gray-100 py-6">
+          <div className="wrap flex flex-col md:flex-row items-center justify-between gap-6 text-[11px] font-bold tracking-widest text-gray-500 uppercase">
+            <div className="flex items-center gap-8">
+              <a href="#" className="hover:text-black transition-colors">FACEBOOK</a>
+              <a href="#" className="hover:text-black transition-colors">YOUTUBE</a>
+              <a href="#" className="hover:text-black transition-colors">TWITTER</a>
             </div>
+            <div className="flex items-center gap-2">
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+              <a href="mailto:hidirektor@gmail.com" className="hover:text-black transition-colors">INFO.MADHU786@GMAIL.COM</a>
+            </div>
+          </div>
+        </div>
+
+        <ServicesSection />
+        
+        {/* Experience Section */}
+        <section className="py-24 bg-white" id="experience">
+          <div className="wrap">
+            <ExperienceList />
           </div>
         </section>
 
-        {/* ── ABOUT ────────────────────────────────────────── */}
-        <section id="about">
-          <div className="wrap-wide">
-            <p className="label">About</p>
-            <div className="about-grid">
-              <div>
-                <p className="section-h">Engineering at the intersection of silicon and software.</p>
-                <p className="section-p" style={{ marginTop: "1rem" }}>
-                  I started with mechatronics engineering at Manisa Celal Bayar University (GPA 3.32/4.00),
-                  giving me a rare dual perspective — I understand both the hardware and the stack.
-                  From lift control systems to cloud-native IoT platforms, I build things that work at scale.
+        {/* Case Study Section */}
+        <section className="py-24 bg-[#f8f9fa]" id="projects">
+          <div className="wrap flex flex-col gap-12">
+            <div className="text-center">
+              <div className="inline-flex flex-col items-center">
+                <h2 className="text-3xl font-bold tracking-tight mb-3">CASE STUDY</h2>
+                <p className="text-xs text-gray-500 max-w-sm text-center">
+                  There are many variations of passages of software available, but the majority have suffered alteration in some form.
                 </p>
-                <p className="section-p" style={{ marginTop: "0.75rem" }}>
-                  Outside work I'm a semi-professional cyclist obsessed with long-distance rides.
-                  The same discipline that keeps me optimizing for endurance over sprints in every system I build.
-                </p>
-                <div className="info-list">
-                  {[
-                    { k: "Location",   v: "İzmir, Turkey" },
-                    { k: "Education",  v: "B.Sc. Mechatronics Eng." },
-                    { k: "Languages",  v: "Turkish · English · German" },
-                    { k: "Interests",  v: "Cycling, Long-Distance Rides" },
-                  ].map((r) => (
-                    <div key={r.k} className="info-row">
-                      <span className="info-key">{r.k}</span>
-                      <span className="info-val">{r.v}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="stat-grid">
-                {[
-                  { n: "6+",  l: "Years of Experience" },
-                  { n: "10+", l: "Companies & Projects" },
-                  { n: "4",   l: "Countries Worked In" },
-                  { n: "2",   l: "TÜBİTAK Grants" },
-                ].map((s) => (
-                  <div key={s.l} className="stat-box">
-                    <span className="stat-num">{s.n}</span>
-                    <span className="stat-lbl">{s.l}</span>
-                  </div>
-                ))}
               </div>
             </div>
-          </div>
-        </section>
 
-        {/* ── EXPERIENCE ───────────────────────────────────── */}
-        <section id="experience">
-          <div className="wrap-wide">
-            <p className="label">Experience</p>
-            <p className="section-p" style={{ marginBottom: "2rem" }}>
-              Click any stage to explore — from London to İzmir, 7 stops across my engineering journey.
-            </p>
-            <CareerRoute />
-          </div>
-        </section>
-
-        {/* ── TECH ─────────────────────────────────────────── */}
-        <section id="tech">
-          <div className="wrap">
-            <p className="label">Tech Stack</p>
-            <div className="skills-block">
-              {techStack.map((t) => (
-                <div key={t.cat} className="skill-row">
-                  <span className="skill-cat">{t.cat}</span>
-                  <span className="skill-vals">{t.vals}</span>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {/* Featured Large Project */}
+              <div className="col-span-1 md:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-8 bg-white p-6 rounded-3xl shadow-sm border border-gray-100">
+                <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-gray-100">
+                  <img src={projects[0].img} alt={projects[0].title} className="w-full h-full object-cover" />
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── PROJECTS ─────────────────────────────────────── */}
-        <section id="projects">
-          <div className="wrap-wide">
-            <p className="label">Projects</p>
-            <div className="projects-list">
-              {projects.map((p) => (
-                <div key={p.title} className="project-item">
-                  <div>
-                    <p className="project-title">{p.title}</p>
-                    {p.subtitle && <p className="project-subtitle">{p.subtitle}</p>}
-                    <p className="project-desc">{p.desc}</p>
-                    <div className="project-tools">
-                      {p.tools.map((t) => <span key={t} className="project-tool">{t}</span>)}
-                    </div>
-                  </div>
-                  <div className="project-right">
-                    <span className="project-period">{p.period}</span>
-                    {p.pending && (
-                      <div className="status-badges">
-                        <span className="status-badge badge-pending">Support: Pending</span>
-                        <span className="status-badge badge-ongoing">Ongoing</span>
-                      </div>
-                    )}
-                    <a href={p.github} target="_blank" rel="noopener noreferrer" className="project-gh">
-                      GitHub ↗
-                    </a>
-                  </div>
+                <div className="flex flex-col justify-center p-8">
+                  <span className="bg-black text-white text-[10px] font-bold tracking-widest uppercase px-4 py-1.5 rounded-full w-fit mb-6">
+                    {projects[0].category}
+                  </span>
+                  <h3 className="text-3xl md:text-4xl font-bold leading-tight mb-4 text-balance">
+                    {projects[0].title}
+                  </h3>
+                  <p className="text-gray-500 text-sm leading-relaxed mb-8">
+                    {projects[0].desc}
+                  </p>
+                  <a href="https://github.com/hidirektor" className="text-xs font-bold tracking-widest uppercase flex items-center gap-2 border-b-2 border-black pb-1 w-fit hover:text-gray-600 hover:border-gray-600 transition-colors">
+                    SEE DETAILS ↗
+                  </a>
                 </div>
-              ))}
-            </div>
-
-            {/* Publication note */}
-            <div style={{ marginTop: "2rem", paddingTop: "1.5rem", borderTop: "1px solid var(--border)" }}>
-              <p style={{ fontSize: "0.72rem", color: "var(--muted)", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", marginBottom: "0.5rem" }}>Publication</p>
-              <p style={{ fontSize: "0.85rem", color: "var(--text)", marginBottom: "0.25rem" }}>
-                MQTT vs Alternatives: Choosing the Right Protocol for Industrial IoT
-              </p>
-              <p style={{ fontSize: "0.78rem", color: "var(--muted)", lineHeight: 1.6 }}>
-                Direktor, H. I. (2025). Submitted to <em>IEEE Internet of Things Journal</em>. TÜBİTAK 2209-B No: 1139B412301407.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* ── WRITING ──────────────────────────────────────── */}
-        <section id="writing">
-          <div className="wrap">
-            <p className="label">Writing</p>
-
-            <p style={{ fontSize: "0.72rem", color: "var(--muted)", marginBottom: "0.75rem", textTransform: "uppercase", letterSpacing: "0.08em" }}>Medium</p>
-            <div className="writing-list" style={{ marginBottom: "2.5rem" }}>
-              {mediumArticles.map((a) => (
-                <a key={a.title} href={a.href} target="_blank" rel="noopener noreferrer" className="writing-item">
-                  <div>
-                    <p className="writing-platform platform-medium">Medium</p>
-                    <p className="writing-title">{a.title}</p>
-                    <p className="writing-desc">{a.desc}</p>
-                  </div>
-                  <span className="writing-date">{a.date}</span>
-                </a>
-              ))}
-            </div>
-
-            <p style={{ fontSize: "0.72rem", color: "var(--muted)", marginBottom: "0.75rem", textTransform: "uppercase", letterSpacing: "0.08em" }}>LinkedIn</p>
-            <div className="writing-list">
-              {linkedinPosts.map((p) => (
-                <a key={p.title} href={p.href} target="_blank" rel="noopener noreferrer" className="writing-item">
-                  <div>
-                    <p className="writing-platform platform-linkedin">LinkedIn</p>
-                    <p className="writing-title">{p.title}</p>
-                    <p className="writing-desc">{p.desc}</p>
-                  </div>
-                  <span className="writing-date">{p.date}</span>
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── FAVORITES ────────────────────────────────────── */}
-        <section id="favorites">
-          <div className="wrap">
-            <p className="label">Favorites</p>
-            <p className="section-p" style={{ marginBottom: "2rem" }}>Films, series, books and rides that keep me inspired.</p>
-            <div className="fav-grid">
-              {favorites.map((f) => (
-                <div key={f.name} className="fav-item">
-                  <span className="fav-emoji">{f.e}</span>
-                  <div className="fav-content">
-                    <p className="fav-name">{f.name}</p>
-                    <p className="fav-meta">{f.meta}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ── CONTACT ──────────────────────────────────────── */}
-        <section id="contact">
-          <div className="wrap">
-            <p className="label">Contact</p>
-            <p className="section-h">Let's talk.</p>
-            <p className="section-p" style={{ marginTop: "0.5rem", marginBottom: "1.75rem" }}>
-              Whether it's a backend, an IoT project, a mobile app, or just a good cycling route recommendation — reach out.
-            </p>
-            <div className="contact-wrap">
-              <a href="mailto:hidirektor@gmail.com" className="contact-mail">
-                hidirektor@gmail.com ↗
-              </a>
-              <div className="contact-row">
-                <a href="https://github.com/hidirektor" target="_blank" rel="noopener noreferrer" className="contact-link">GitHub</a>
-                <a href="https://linkedin.com/in/hidirektor" target="_blank" rel="noopener noreferrer" className="contact-link">LinkedIn</a>
-                <a href="https://medium.com/@hidirektor" target="_blank" rel="noopener noreferrer" className="contact-link">Medium</a>
-                <a href="https://hidirektor.dev" target="_blank" rel="noopener noreferrer" className="contact-link">hidirektor.dev</a>
               </div>
+
+              {/* Smaller Projects */}
+              {projects.slice(1).map((p, i) => (
+                <div key={i} className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex flex-col gap-6">
+                  <div className="aspect-[16/9] rounded-2xl overflow-hidden bg-gray-100">
+                    <img src={p.img} alt={p.title} className="w-full h-full object-cover" />
+                  </div>
+                  <div className="flex flex-col flex-1">
+                    <span className="bg-black text-white text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full w-fit mb-4">
+                      {p.category}
+                    </span>
+                    <h3 className="text-xl font-bold leading-tight mb-2">
+                      {p.title}
+                    </h3>
+                    <p className="text-gray-500 text-xs leading-relaxed mb-6 flex-1">
+                      {p.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
-
-        {/* ── FOOTER ───────────────────────────────────────── */}
 
       </main>
       <Footer />
