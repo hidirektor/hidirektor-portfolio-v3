@@ -43,62 +43,77 @@ const projects = [
 
 export default function ProjectsSection() {
   return (
-    <section id="projects" className="py-24 bg-white dark:bg-[#050505]">
-      <div className="wrap">
-        <div className="mb-16">
-          <h2 className="text-3xl md:text-5xl font-black tracking-tight mb-4 text-black dark:text-white">
+    <section id="projects" className="py-32 bg-[#050505] relative">
+      {/* Background glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[500px] bg-[#E4007C]/5 blur-[120px] rounded-full pointer-events-none z-0"></div>
+      
+      <div className="wrap relative z-10">
+        <div className="mb-20 flex flex-col items-center text-center">
+          <p className="text-[#E4007C] text-sm font-bold tracking-widest uppercase mb-4">Portfolio</p>
+          <h2 className="text-4xl md:text-6xl font-black tracking-tight mb-6 text-white font-display">
             Current Projects
           </h2>
-          <p className="text-gray-500 max-w-xl text-lg">
+          <p className="text-white/50 max-w-2xl text-lg font-light leading-relaxed">
             A selection of my recent technical endeavors, ranging from IoT hardware integrations to full-stack scalable web applications.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {projects.map((project, i) => (
             <div 
               key={i}
-              className="group p-8 rounded-2xl bg-gray-50 dark:bg-white/[0.02] border border-gray-100 dark:border-white/5 hover:border-black/10 dark:hover:border-white/10 transition-all duration-300 flex flex-col justify-between"
+              className="group relative p-[1px] rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-1"
             >
-              <div>
-                <div className="flex justify-between items-start mb-6">
-                  <h3 className="text-xl font-bold tracking-tight text-black dark:text-white group-hover:text-[#E4007C] transition-colors">
-                    {project.title}
-                  </h3>
-                  <span className="text-xs font-medium text-gray-400 whitespace-nowrap ml-4">
-                    {project.date}
-                  </span>
-                </div>
+              {/* Animated border gradient */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-50 group-hover:from-[#E4007C]/50 group-hover:via-[#FBDD09]/50 group-hover:to-transparent transition-all duration-500 z-0"></div>
+              
+              {/* Card content */}
+              <div className="relative h-full bg-[#0a0a0a] rounded-3xl p-8 md:p-10 flex flex-col justify-between z-10">
                 
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-8 leading-relaxed">
-                  {project.description}
-                </p>
-              </div>
+                {/* Radial glow effect on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
 
-              <div>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tech.map((t) => (
-                    <span 
-                      key={t}
-                      className="px-2 py-1 rounded bg-black/5 dark:bg-white/5 text-[10px] font-bold tracking-wider uppercase text-gray-600 dark:text-gray-300"
-                    >
-                      {t}
+                <div className="relative z-20">
+                  <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-6">
+                    <h3 className="text-2xl font-bold tracking-tight text-white font-display group-hover:text-[#E4007C] transition-colors duration-300">
+                      {project.title}
+                    </h3>
+                    <span className="inline-block px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-white/40 whitespace-nowrap">
+                      {project.date}
                     </span>
-                  ))}
+                  </div>
+                  
+                  <p className="text-base text-white/50 mb-8 leading-relaxed font-light">
+                    {project.description}
+                  </p>
                 </div>
 
-                <div className="flex gap-4">
-                  {project.links.map((link) => (
-                    <a
-                      key={link.label}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs font-bold text-black dark:text-white hover:text-[#E4007C] dark:hover:text-[#E4007C] flex items-center gap-1 transition-colors"
-                    >
-                      {link.label} ↗
-                    </a>
-                  ))}
+                <div className="relative z-20">
+                  <div className="flex flex-wrap gap-2 mb-8">
+                    {project.tech.map((t) => (
+                      <span 
+                        key={t}
+                        className="px-3 py-1.5 rounded-lg bg-white/[0.03] border border-white/[0.05] text-xs font-semibold tracking-wide text-white/70"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="flex gap-6">
+                    {project.links.map((link) => (
+                      <a
+                        key={link.label}
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm font-bold text-white/60 hover:text-white flex items-center gap-2 transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white hover:after:w-full after:transition-all after:duration-300 pb-1"
+                      >
+                        {link.label} 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                      </a>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
