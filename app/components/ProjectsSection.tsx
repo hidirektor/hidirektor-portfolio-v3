@@ -62,37 +62,37 @@ export default function ProjectsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
           {projects.map((project, i) => (
             <div 
               key={i}
-              className="group relative p-[1px] rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-1"
+              className="group relative p-[1px] rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-2"
             >
               {/* Animated border gradient */}
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-50 group-hover:from-[#E4007C]/50 group-hover:via-[#FBDD09]/50 group-hover:to-transparent transition-all duration-500 z-0"></div>
               
               {/* Card content */}
-              <div className="relative h-full bg-[#0a0a0a] rounded-3xl p-8 md:p-10 flex flex-col justify-between z-10">
+              <div className="relative h-full bg-[#0a0a0a] rounded-3xl p-8 lg:p-12 flex flex-col justify-between z-10">
                 
                 {/* Radial glow effect on hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
 
                 <div className="relative z-20">
-                  <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-6">
-                    <h3 className="text-2xl font-bold tracking-tight text-white font-display group-hover:text-[#E4007C] transition-colors duration-300">
+                  <div className="flex flex-col xl:flex-row xl:justify-between xl:items-start gap-4 mb-8">
+                    <h3 className="text-xl md:text-2xl font-bold tracking-tight text-white font-display group-hover:text-[#E4007C] transition-colors duration-300 flex-1 pr-4 leading-tight">
                       {project.title}
                     </h3>
-                    <span className="inline-block px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold text-white/40 whitespace-nowrap">
+                    <span className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[10px] md:text-xs font-bold text-white/50 whitespace-nowrap shrink-0">
                       {project.date}
                     </span>
                   </div>
                   
-                  <p className="text-base text-white/50 mb-8 leading-relaxed font-light">
+                  <p className="text-base text-white/50 mb-10 leading-relaxed font-light">
                     {project.description}
                   </p>
                 </div>
 
-                <div className="relative z-20">
+                <div className="relative z-20 mt-auto">
                   <div className="flex flex-wrap gap-2 mb-8">
                     {project.tech.map((t) => (
                       <span 
@@ -104,7 +104,7 @@ export default function ProjectsSection() {
                     ))}
                   </div>
 
-                  <div className="flex gap-6">
+                  <div className="flex flex-wrap gap-6 mt-auto">
                     {project.links.map((link) => (
                       <a
                         key={link.label}
