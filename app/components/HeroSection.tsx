@@ -1,6 +1,10 @@
 'use client';
 
+import {useLanguage} from '../context/LanguageContext';
+
 export default function HeroSection() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative min-h-screen flex flex-col justify-between overflow-hidden bg-[#050505] pt-40 pb-12">
       {/* Background Image */}
@@ -30,15 +34,15 @@ export default function HeroSection() {
         {/* Center: Title, Desc, Lets Scroll */}
         <div className="flex flex-col items-center text-center max-w-md gap-5">
           <div className="flex flex-col gap-2">
-            <h3 className="text-white font-bold text-sm tracking-widest uppercase">Software Architect</h3>
+            <h3 className="text-white font-bold text-sm tracking-widest uppercase">{t('hero.subtitle')}</h3>
             <p className="text-[#999999] text-xs font-medium leading-relaxed">
-              Hello! I'm a software architect and embedded systems engineer. I love bridging the gap between hardware and the cloud, turning complex problems into elegant, scalable solutions. From robust backends to pixel-perfect web experiences, I'm here to bring meaningful ideas to life.
+              {t('hero.description')}
             </p>
           </div>
           <a href="#experience" className="text-white/40 hover:text-white text-[10px] md:text-xs font-bold tracking-widest uppercase transition-colors duration-300 flex items-center gap-2 group mt-2">
             <span className="opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">↓</span>
             <span className="transition-all duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#FBDD09] group-hover:via-[#E4007C] group-hover:to-[#D30026] group-hover:bg-[length:200%_auto] group-hover:animate-wave">
-              [ Lets Scroll ]
+              [ {t('hero.scroll')} ]
             </span>
             <span className="opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">↓</span>
           </a>
