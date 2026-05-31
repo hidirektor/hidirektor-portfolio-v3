@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import {useEffect, useState} from 'react';
-import SettingsWidget from './SettingsWidget';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -104,8 +103,6 @@ export default function Header() {
           </a>
         </div>
       </div>
-
-      <SettingsWidget />
     </header>
   );
 }
