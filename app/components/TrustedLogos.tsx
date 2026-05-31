@@ -1,6 +1,10 @@
 'use client';
 
+import {useLanguage} from '../context/LanguageContext';
+
 export default function TrustedLogos() {
+  const { t } = useLanguage();
+
   return (
     <section className="relative w-full py-16 md:py-24 bg-[#050505] overflow-hidden">
       {/* Subtle top/bottom gradient lines */}
@@ -9,7 +13,7 @@ export default function TrustedLogos() {
 
       <div className="wrap flex flex-col items-center gap-12 relative z-10">
         <p className="text-[10px] md:text-xs font-bold tracking-[0.3em] text-white/40 uppercase text-center">
-          Trusted By Industry Leaders
+          {t('trusted.title')}
         </p>
         
         {/* Logos Container */}

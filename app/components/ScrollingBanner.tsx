@@ -1,24 +1,32 @@
 'use client';
 
+import {useLanguage} from '../context/LanguageContext';
+
 export default function ScrollingBanner() {
-  // We duplicate the text array a few times to ensure smooth infinite scroll
-  const items = [
-    "SOFTWARE ARCHITECTURE", "EMBEDDED SYSTEMS", "BACKEND DEVELOPMENT", "CLOUD INFRASTRUCTURE", "IoT SOLUTIONS"
-  ];
+  const { t } = useLanguage();
   
-  const duplicatedItems = [...items, ...items, ...items, ...items];
+  const items = [
+    t('banner.item1'),
+    t('banner.item2'),
+    t('banner.item3'),
+    t('banner.item4'),
+    t('banner.item5')
+  ];
 
   return (
-    <div className="w-full bg-[#0a0a0a] dark:bg-white py-5 overflow-hidden flex whitespace-nowrap border-y border-gray-800 dark:border-gray-200">
-      <div className="flex items-center gap-10 animate-scroll">
-        {duplicatedItems.map((item, idx) => (
-          <div key={idx} className="flex items-center gap-10">
-            <span className="text-white dark:text-black font-bold text-sm tracking-[0.2em] uppercase">
-              {item}
-            </span>
-            <span className="text-gray-600 dark:text-gray-400 text-lg">✦</span>
-          </div>
-        ))}
+    <div className="w-full bg-[#E4007C] overflow-hidden py-4 border-y border-[#FBDD09]/20 relative z-20">
+      <div className="flex whitespace-nowrap">
+        {/* Animate-scroll class applies a 20s infinite scroll to the left */}
+        <div className="animate-scroll flex gap-8 px-4 items-center">
+          {items.concat(items).concat(items).map((text, i) => (
+            <div key={i} className="flex items-center gap-8">
+              <span className="text-white font-black tracking-widest text-sm md:text-base">
+                {text}
+              </span>
+              <span className="w-2 h-2 rounded-full bg-[#FBDD09]" />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
