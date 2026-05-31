@@ -1,0 +1,68 @@
+{
+  "header": {
+    "home": "Startseite",
+    "projects": "Projekte",
+    "about": "Über mich",
+    "contact": "Kontakt",
+    "downloadCv": "Lebenslauf Herunterladen"
+  },
+  "hero": {
+    "subtitle": "SOFTWARE-ARCHITEKT",
+    "titleLine1": "Skalierbare Erstellen",
+    "titleLine2": "IoT & Web Lösungen",
+    "description": "Full-Stack Entwickler mit Fokus auf Leistung, hochverfügbare Architektur und Echtzeitsysteme. Derzeit leite ich Teams zur Entwicklung von Next-Gen Technologien.",
+    "scroll": "Nach unten scrollen"
+  },
+  "banner": {
+    "item1": "SKALIERBARE SYSTEME",
+    "item2": "ECHTZEIT-IoT",
+    "item3": "FULL-STACK-ARCHITEKTUR",
+    "item4": "CLOUD-BEREITSTELLUNGEN",
+    "item5": "MASCHINELLES LERNEN"
+  },
+  "trusted": {
+    "title": "Von Branchenführern vertraut"
+  },
+  "projects": {
+    "tag": "Portfolio",
+    "title": "Aktuelle Projekte",
+    "description": "Eine Auswahl meiner jüngsten technischen Projekte, von IoT-Hardware-Integrationen bis hin zu skalierbaren Full-Stack-Webanwendungen.",
+    "items": {
+      "project1": {
+        "title": "Anwesenheitsverwaltungssystem",
+        "description": "Ein Echtzeit-Anwesenheitsverfolgungssystem für Bildungseinrichtungen mit dynamischen QR-Codes, robuster Backend-API, Redis-Caching und einem Admin-Dashboard."
+      },
+      "project2": {
+        "title": "Open-Source Web 3.0 & IoT Mobile Integration",
+        "description": "TÜBİTAK 2209-B Ausgezeichnetes Projekt. Eine modulare IIoT-Plattform für industrielle Systeme, die Datenerfassung in Echtzeit von der SPS über STM32, Modbus, FreeRTOS und Node.js ermöglicht."
+      },
+      "project3": {
+        "title": "Kurier-Mobile-Anwendung",
+        "description": "Echtzeit-Bestellverfolgungsdienst für E-Commerce mit Spring Boot-Backend, nativer Android- (Java) und iOS-App (Swift) für plattformübergreifendes Liefermanagement."
+      },
+      "project4": {
+        "title": "TFEncryption Chat",
+        "description": "Eine Desktop-Chat-Anwendung, die WebRTC, Cactoos und Nebenläufigkeit nutzt. Ermöglicht sichere Datei- und Nachrichtenübertragungen, verschlüsselt mit SPN-, SHA256- oder MD5-Algorithmen."
+      }
+    }
+  },
+  "entertainment": {
+    "tag": "Jenseits des Codes",
+    "title": "Die Kreativität anregen",
+    "description": "Wenn ich keine Software entwerfe oder IoT-Schaltkreise löte, bin ich wahrscheinlich auf dem Fahrrad unterwegs oder höre meine Lieblings-Playlists. Das ist mein Treibstoff.",
+    "cycling": "Langstrecken-Radfahren",
+    "music": "Elektronik & Rock",
+    "playlistTitle": "Lieblings-Playlist",
+    "playlistDesc": "Binden Sie hier Ihre Spotify- oder Apple Music-Playlist ein, um Ihre Musik mit Besuchern zu teilen."
+  },
+  "footer": {
+    "backgroundText": "DİREKTÖR",
+    "foregroundText": "Halil İbrahim"
+  },
+  "settings": {
+    "theme": "Thema",
+    "language": "Sprache",
+    "light": "Hell",
+    "dark": "Dunkel"
+  }
+}

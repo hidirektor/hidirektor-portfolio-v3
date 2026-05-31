@@ -1,0 +1,68 @@
+{
+  "header": {
+    "home": "Home",
+    "projects": "Projects",
+    "about": "About",
+    "contact": "Contact",
+    "downloadCv": "Download CV"
+  },
+  "hero": {
+    "subtitle": "SOFTWARE ARCHITECT",
+    "titleLine1": "Crafting Scalable",
+    "titleLine2": "IoT & Web Solutions",
+    "description": "Full-stack developer focused on performance, high-availability architecture, and real-time systems. Currently leading teams to build next-generation tech.",
+    "scroll": "Lets Scroll"
+  },
+  "banner": {
+    "item1": "SCALABLE SYSTEMS",
+    "item2": "REAL-TIME IoT",
+    "item3": "FULL-STACK ARCHITECTURE",
+    "item4": "CLOUD DEPLOYMENTS",
+    "item5": "MACHINE LEARNING"
+  },
+  "trusted": {
+    "title": "Trusted By Industry Leaders"
+  },
+  "projects": {
+    "tag": "Portfolio",
+    "title": "Current Projects",
+    "description": "A selection of my recent technical endeavors, ranging from IoT hardware integrations to full-stack scalable web applications.",
+    "items": {
+      "project1": {
+        "title": "Class Roll Call Management System",
+        "description": "A real-time attendance tracking system for educational institutions featuring dynamic QR codes, robust backend API, Redis caching, and an administrative dashboard."
+      },
+      "project2": {
+        "title": "Open-Source Web 3.0 & IoT Mobile Integration",
+        "description": "TÜBİTAK 2209-B Awarded Project. A modular IIoT platform for industrial systems enabling real-time data collection from PLC using STM32, Modbus, FreeRTOS, and Node.js."
+      },
+      "project3": {
+        "title": "Delivery Boy Mobile Application",
+        "description": "Real-time order tracking service for e-commerce with Spring Boot backend, native Android (Java) app, and native iOS (Swift) app for cross-platform delivery management."
+      },
+      "project4": {
+        "title": "TFEncryption Chat",
+        "description": "A desktop chat application utilizing WebRTC, Cactoos, and Concurrency. Allows secure file and message transfers encrypted via SPN, SHA256, or MD5 algorithms."
+      }
+    }
+  },
+  "entertainment": {
+    "tag": "Beyond Code",
+    "title": "Fueling The Creativity",
+    "description": "When I'm not architecting software or soldering IoT circuits, you'll probably find me cycling long distances or vibing to my favorite playlists. Here is what keeps me fueled.",
+    "cycling": "Long-Distance Cycling",
+    "music": "Electronic & Rock",
+    "playlistTitle": "Favorite Playlist",
+    "playlistDesc": "Embed your Spotify or Apple Music playlist here to share your vibes with visitors."
+  },
+  "footer": {
+    "backgroundText": "DİREKTÖR",
+    "foregroundText": "Halil İbrahim"
+  },
+  "settings": {
+    "theme": "Theme",
+    "language": "Language",
+    "light": "Light",
+    "dark": "Dark"
+  }
+}

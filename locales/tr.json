@@ -1,0 +1,68 @@
+{
+  "header": {
+    "home": "Ana Sayfa",
+    "projects": "Projeler",
+    "about": "Hakkımda",
+    "contact": "İletişim",
+    "downloadCv": "CV İndir"
+  },
+  "hero": {
+    "subtitle": "YAZILIM MİMARI",
+    "titleLine1": "Ölçeklenebilir",
+    "titleLine2": "IoT ve Web Çözümleri",
+    "description": "Performans, yüksek erişilebilirlik mimarisi ve gerçek zamanlı sistemlere odaklanan Full-Stack geliştirici. Yeni nesil teknolojiler inşa eden ekiplere liderlik ediyorum.",
+    "scroll": "Aşağı Kaydır"
+  },
+  "banner": {
+    "item1": "ÖLÇEKLENEBİLİR SİSTEMLER",
+    "item2": "GERÇEK ZAMANLI IoT",
+    "item3": "FULL-STACK MİMARİSİ",
+    "item4": "BULUT DAĞITIMLARI",
+    "item5": "MAKİNE ÖĞRENİMİ"
+  },
+  "trusted": {
+    "title": "Sektör Liderleri Tarafından Güveniliyor"
+  },
+  "projects": {
+    "tag": "Portfolyo",
+    "title": "Güncel Projeler",
+    "description": "IoT donanım entegrasyonlarından full-stack ölçeklenebilir web uygulamalarına kadar uzanan son teknik çalışmalarımın bir seçkisi.",
+    "items": {
+      "project1": {
+        "title": "Sınıf Yoklama Yönetim Sistemi",
+        "description": "Dinamik QR kodlar, sağlam backend API'si, Redis önbelleğe alma ve bir yönetim paneline sahip eğitim kurumları için gerçek zamanlı yoklama takip sistemi."
+      },
+      "project2": {
+        "title": "Açık Kaynak Web 3.0 & IoT Mobil Entegrasyonu",
+        "description": "TÜBİTAK 2209-B Ödüllü Proje. STM32, Modbus, FreeRTOS ve Node.js kullanarak PLC'den gerçek zamanlı veri toplamayı sağlayan endüstriyel sistemler için modüler bir IIoT platformu."
+      },
+      "project3": {
+        "title": "Kurye Mobil Uygulaması",
+        "description": "Spring Boot backend, yerel Android (Java) ve iOS (Swift) uygulamaları ile e-ticaret için çapraz platform teslimat yönetimi sağlayan gerçek zamanlı sipariş takip hizmeti."
+      },
+      "project4": {
+        "title": "TFEncryption Sohbet Uygulaması",
+        "description": "WebRTC, Cactoos ve Concurrency kullanan masaüstü sohbet uygulaması. SPN, SHA256 veya MD5 algoritmalarıyla şifrelenmiş güvenli dosya ve mesaj transferlerine olanak tanır."
+      }
+    }
+  },
+  "entertainment": {
+    "tag": "Kodun Ötesinde",
+    "title": "Yaratıcılığı Beslemek",
+    "description": "Yazılım mimarisi tasarlamadığım veya IoT devreleri lehimlemediğim zamanlarda, beni muhtemelen uzun mesafe bisiklet sürerken veya favori müziklerimi dinlerken bulabilirsiniz. İşte bana enerji veren şeyler.",
+    "cycling": "Uzun Mesafe Bisiklet",
+    "music": "Elektronik & Rock",
+    "playlistTitle": "Favori Oynatma Listesi",
+    "playlistDesc": "Ziyaretçilerle kendi tarzınızı paylaşmak için Spotify veya Apple Music listenizi buraya ekleyin."
+  },
+  "footer": {
+    "backgroundText": "DİREKTÖR",
+    "foregroundText": "Halil İbrahim"
+  },
+  "settings": {
+    "theme": "Tema",
+    "language": "Dil",
+    "light": "Açık",
+    "dark": "Koyu"
+  }
+}
