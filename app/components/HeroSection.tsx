@@ -32,7 +32,7 @@ export default function HeroSection() {
           <div className="flex flex-col gap-2">
             <h3 className="text-white font-bold text-sm tracking-widest uppercase">Software Architect</h3>
             <p className="text-[#999999] text-xs font-medium leading-relaxed">
-              Halil İbrahim is a software architect and embedded systems engineer focusing on web design, scalable backend, and branding. He helps companies connect with their audience and grow their businesses through robust and meaningful digital products.
+              Hello! I'm a software architect and embedded systems engineer. I love bridging the gap between hardware and the cloud, turning complex problems into elegant, scalable solutions. From robust backends to pixel-perfect web experiences, I'm here to bring meaningful ideas to life.
             </p>
           </div>
           <a href="#experience" className="text-white/40 hover:text-white text-[10px] md:text-xs font-bold tracking-widest uppercase transition-colors duration-300 flex items-center gap-2 group mt-2">

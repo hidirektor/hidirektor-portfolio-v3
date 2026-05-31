@@ -48,7 +48,7 @@ export default function SettingsWidget() {
                 className={`px-3 py-1.5 text-xs font-bold rounded-full transition-all duration-300 ${
                   lang === l 
                     ? 'bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 shadow-md' 
-                    : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5'
+                    : 'text-zinc-600 dark:text-zinc-400 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#FBDD09] hover:via-[#E4007C] hover:to-[#D30026]'
                 }`}
               >
                 {l}
