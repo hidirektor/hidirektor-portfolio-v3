@@ -44,7 +44,7 @@ export default function EntertainmentSection() {
             {/* Spotify Embed */}
             <iframe 
               className="relative z-10 w-full h-full rounded-[2rem]"
-              src="https://open.spotify.com/embed/playlist/7qxCKelBqXex8FteUUZLva?utm_source=generator&theme=0" 
+              src="https://open.spotify.com/embed/playlist/6xu2mVVwb8YqM2W30NPSJJ?utm_source=generator&theme=0" 
               width="100%" 
               height="100%" 
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 

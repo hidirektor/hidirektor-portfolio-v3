@@ -6,7 +6,7 @@ export default function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer className="relative w-full pt-32 md:pt-48 pb-16 md:pb-24 overflow-hidden flex flex-col items-center justify-center text-white bg-transparent">
+    <footer className="relative w-full pt-32 md:pt-48 pb-16 md:pb-24 overflow-hidden flex flex-col items-center justify-center text-white bg-[#050505]">
       
       {/* Giant Text Layered Effect */}
       <div className="relative w-full flex justify-center items-center leading-none select-none pointer-events-auto cursor-default">
