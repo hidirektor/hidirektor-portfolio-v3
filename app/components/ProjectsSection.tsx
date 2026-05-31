@@ -62,7 +62,7 @@ export default function ProjectsSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-16">
           {projects.map((project, i) => (
             <div 
               key={i}
@@ -72,17 +72,17 @@ export default function ProjectsSection() {
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-50 group-hover:from-[#E4007C]/50 group-hover:via-[#FBDD09]/50 group-hover:to-transparent transition-all duration-500 z-0"></div>
               
               {/* Card content */}
-              <div className="relative h-full bg-[#0a0a0a] rounded-3xl p-8 lg:p-12 flex flex-col justify-between z-10">
+              <div className="relative h-full bg-[#0a0a0a] rounded-3xl p-10 lg:p-14 flex flex-col justify-between z-10 overflow-hidden">
                 
                 {/* Radial glow effect on hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
 
                 <div className="relative z-20">
-                  <div className="flex flex-col xl:flex-row xl:justify-between xl:items-start gap-4 mb-8">
-                    <h3 className="text-xl md:text-2xl font-bold tracking-tight text-white font-display group-hover:text-[#E4007C] transition-colors duration-300 flex-1 pr-4 leading-tight">
+                  <div className="flex flex-wrap items-start justify-between gap-4 mb-8 w-full">
+                    <h3 className="text-xl md:text-2xl font-bold tracking-tight text-white font-display group-hover:text-[#E4007C] transition-colors duration-300 flex-1 min-w-[200px] leading-tight pr-4">
                       {project.title}
                     </h3>
-                    <span className="inline-flex items-center justify-center px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[10px] md:text-xs font-bold text-white/50 whitespace-nowrap shrink-0">
+                    <span className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-bold text-white/50 whitespace-nowrap shrink-0 mt-1">
                       {project.date}
                     </span>
                   </div>
@@ -93,18 +93,18 @@ export default function ProjectsSection() {
                 </div>
 
                 <div className="relative z-20 mt-auto">
-                  <div className="flex flex-wrap gap-2 mb-8">
+                  <div className="flex flex-wrap items-center gap-3 mb-10 w-full">
                     {project.tech.map((t) => (
                       <span 
                         key={t}
-                        className="px-3 py-1.5 rounded-lg bg-white/[0.03] border border-white/[0.05] text-xs font-semibold tracking-wide text-white/70"
+                        className="px-4 py-2 rounded-xl bg-white/[0.04] border border-white/[0.08] text-sm font-semibold tracking-wide text-white/80"
                       >
                         {t}
                       </span>
                     ))}
                   </div>
 
-                  <div className="flex flex-wrap gap-6 mt-auto">
+                  <div className="flex flex-wrap items-center gap-6 mt-auto">
                     {project.links.map((link) => (
                       <a
                         key={link.label}
