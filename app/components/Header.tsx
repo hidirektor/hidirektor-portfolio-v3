@@ -85,7 +85,7 @@ export default function Header() {
         </div>
 
         {/* Second Row: Social Links */}
-        <div className="hidden md:flex justify-center items-center gap-6">
+        <div className="hidden md:flex justify-center items-center gap-6 pb-2">
           <a href="https://instagram.com/hidirektor" target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-gray-500 hover:text-white transition-colors duration-300 flex items-center gap-1 group">
             Instagram
             <span className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5">↗</span>
