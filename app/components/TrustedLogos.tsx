@@ -18,17 +18,23 @@ export default function TrustedLogos() {
           <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#050505] to-transparent z-10 pointer-events-none"></div>
           <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#050505] to-transparent z-10 pointer-events-none"></div>
           
-          {/* Waiting for Logos UI */}
-          <div className="flex justify-center items-center h-24">
-            <div className="px-8 py-3 rounded-full bg-white/[0.02] border border-white/5 backdrop-blur-sm flex items-center gap-3">
-              <span className="relative flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#E4007C] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-[#E4007C]"></span>
-              </span>
-              <p className="text-white/40 text-sm font-medium tracking-wide">
-                Logos will be placed here
-              </p>
-            </div>
+          {/* Logos List */}
+          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 relative z-0 py-4">
+            <img 
+              src="/assets/images/trusted-logo/Logo_Lebara.png" 
+              alt="Lebara" 
+              className="h-8 md:h-12 object-contain opacity-40 grayscale transition-all duration-300 hover:grayscale-0 hover:opacity-100" 
+            />
+            <img 
+              src="/assets/images/trusted-logo/logo-onder.png.webp" 
+              alt="Önder Grup" 
+              className="h-10 md:h-14 object-contain opacity-40 grayscale transition-all duration-300 hover:grayscale-0 hover:opacity-100" 
+            />
+            <img 
+              src="/assets/images/trusted-logo/logo-bg.png" 
+              alt="Motivex" 
+              className="h-8 md:h-12 object-contain opacity-40 grayscale transition-all duration-300 hover:grayscale-0 hover:opacity-100" 
+            />
           </div>
         </div>
       </div>
