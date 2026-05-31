@@ -6,11 +6,8 @@ export default function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer className="relative w-full pt-32 md:pt-48 pb-16 md:pb-24 overflow-hidden flex flex-col items-center justify-center bg-[#050505] text-white">
+    <footer className="relative w-full pt-32 md:pt-48 pb-16 md:pb-24 overflow-hidden flex flex-col items-center justify-center text-white bg-transparent">
       
-      {/* Top Gradient Fade to smooth transition from previous section */}
-      <div className="absolute top-0 left-0 right-0 h-48 bg-gradient-to-b from-[#050505] via-[#050505]/80 to-transparent pointer-events-none z-20"></div>
-
       {/* Giant Text Layered Effect */}
       <div className="relative w-full flex justify-center items-center leading-none select-none pointer-events-auto cursor-default">
         <div className="relative w-full flex justify-center items-center">
@@ -35,9 +32,6 @@ export default function Footer() {
 
         </div>
       </div>
-
-      {/* Bottom Gradient Fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#050505] via-[#050505]/80 to-transparent pointer-events-none z-0"></div>
     </footer>
   );
 }
