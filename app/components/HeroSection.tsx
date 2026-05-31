@@ -37,7 +37,9 @@ export default function HeroSection() {
           </div>
           <a href="#experience" className="text-white/40 hover:text-white text-[10px] md:text-xs font-bold tracking-widest uppercase transition-colors duration-300 flex items-center gap-2 group mt-2">
             <span className="opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">↓</span>
-            [ Lets Scroll ]
+            <span className="transition-all duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#FBDD09] group-hover:via-[#E4007C] group-hover:to-[#D30026] group-hover:bg-[length:200%_auto] group-hover:animate-wave">
+              [ Lets Scroll ]
+            </span>
             <span className="opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">↓</span>
           </a>
         </div>
