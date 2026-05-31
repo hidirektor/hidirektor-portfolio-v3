@@ -40,15 +40,15 @@ export default function SettingsWidget() {
             <path d="M2 12h20"></path>
           </svg>
           
-          <div className="flex bg-white/10 dark:bg-zinc-900/10 rounded-md p-0.5">
+          <div className="flex bg-black/5 dark:bg-white/10 rounded-full p-1 gap-1">
             {['EN', 'TR', 'DE'].map((l) => (
               <button 
                 key={l}
                 onClick={() => setLang(l)}
-                className={`px-2 py-1 text-xs font-bold rounded-sm transition-colors ${
+                className={`px-3 py-1.5 text-xs font-bold rounded-full transition-all duration-300 ${
                   lang === l 
-                    ? 'bg-white text-zinc-900 dark:bg-zinc-900 dark:text-white' 
-                    : 'hover:bg-white/20 dark:hover:bg-zinc-900/20 text-white/70 dark:text-zinc-900/70 hover:text-white dark:hover:text-zinc-900'
+                    ? 'bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 shadow-md' 
+                    : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5'
                 }`}
               >
                 {l}
