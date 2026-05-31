@@ -1,10 +1,11 @@
 {
   "header": {
-    "home": "Ana Sayfa",
-    "projects": "Projeler",
-    "about": "Hakkımda",
-    "contact": "İletişim",
-    "downloadCv": "CV İndir"
+    "myProjects": "Projelerim",
+    "myProjectsDesc": "Yaptığım tüm güzel<br/>projelere göz atın.",
+    "aboutMe": "Hakkımda",
+    "aboutMeDesc": "Benim hakkımda ve<br/>neler yaptığım hakkında bilgi edinin.",
+    "contactMe": "İletişime Geç",
+    "contactMeDesc": "hidirektor@gmail.com"
   },
   "hero": {
     "subtitle": "YAZILIM MİMARI",

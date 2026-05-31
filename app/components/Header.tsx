@@ -2,9 +2,11 @@
 
 import Link from 'next/link';
 import {useEffect, useState} from 'react';
+import {useLanguage} from '../context/LanguageContext';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,12 +48,11 @@ export default function Header() {
                 <div className="absolute top-0 left-0 right-0 h-[1px] bg-black dark:bg-white">
                   <div className="absolute inset-0 bg-gradient-to-r from-[#FBDD09] via-[#E4007C] to-[#D30026] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
-                <span className="font-bold text-[16px] transition-colors duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#FBDD09] group-hover:via-[#E4007C] group-hover:to-[#D30026]">My Projects</span>
+                <span className="font-bold text-[16px] transition-colors duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#FBDD09] group-hover:via-[#E4007C] group-hover:to-[#D30026]">{t('header.myProjects')}</span>
                 <span className="text-[12px] transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[#E4007C]">↗</span>
               </div>
               {/* Subtitle */}
-              <span className="text-[12px] text-gray-500 leading-tight">
-                See all of nice project<br/>i have done.
+              <span className="text-[12px] text-gray-500 leading-tight" dangerouslySetInnerHTML={{__html: t('header.myProjectsDesc')}}>
               </span>
             </Link>
             
@@ -60,11 +61,10 @@ export default function Header() {
                 <div className="absolute top-0 left-0 right-0 h-[1px] bg-black dark:bg-white">
                   <div className="absolute inset-0 bg-gradient-to-r from-[#FBDD09] via-[#E4007C] to-[#D30026] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
-                <span className="font-bold text-[16px] transition-colors duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#FBDD09] group-hover:via-[#E4007C] group-hover:to-[#D30026]">About Me</span>
+                <span className="font-bold text-[16px] transition-colors duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#FBDD09] group-hover:via-[#E4007C] group-hover:to-[#D30026]">{t('header.aboutMe')}</span>
                 <span className="text-[12px] transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[#E4007C]">↗</span>
               </div>
-              <span className="text-[12px] text-gray-500 leading-tight">
-                Learn about my self<br/>what i do
+              <span className="text-[12px] text-gray-500 leading-tight" dangerouslySetInnerHTML={{__html: t('header.aboutMeDesc')}}>
               </span>
             </Link>
 
@@ -73,11 +73,10 @@ export default function Header() {
                 <div className="absolute top-0 left-0 right-0 h-[1px] bg-black dark:bg-white">
                   <div className="absolute inset-0 bg-gradient-to-r from-[#FBDD09] via-[#E4007C] to-[#D30026] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
-                <span className="font-bold text-[16px] transition-colors duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#FBDD09] group-hover:via-[#E4007C] group-hover:to-[#D30026]">Contact me</span>
+                <span className="font-bold text-[16px] transition-colors duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#FBDD09] group-hover:via-[#E4007C] group-hover:to-[#D30026]">{t('header.contactMe')}</span>
                 <span className="text-[12px] transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[#E4007C]">↗</span>
               </div>
-              <span className="text-[12px] text-gray-500 leading-tight">
-                hidirektor@gmail.com
+              <span className="text-[12px] text-gray-500 leading-tight" dangerouslySetInnerHTML={{__html: t('header.contactMeDesc')}}>
               </span>
             </Link>
           </nav>

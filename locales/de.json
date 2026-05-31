@@ -1,10 +1,11 @@
 {
   "header": {
-    "home": "Startseite",
-    "projects": "Projekte",
-    "about": "Über mich",
-    "contact": "Kontakt",
-    "downloadCv": "Lebenslauf Herunterladen"
+    "myProjects": "Meine Projekte",
+    "myProjectsDesc": "Sehen Sie sich alle schönen<br/>Projekte an, die ich gemacht habe.",
+    "aboutMe": "Über mich",
+    "aboutMeDesc": "Erfahren Sie mehr über mich<br/>und was ich tue.",
+    "contactMe": "Kontaktiere mich",
+    "contactMeDesc": "hidirektor@gmail.com"
   },
   "hero": {
     "subtitle": "SOFTWARE-ARCHITEKT",
