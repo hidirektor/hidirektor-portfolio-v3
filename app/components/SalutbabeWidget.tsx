@@ -15,6 +15,15 @@ export default function SalutbabeWidget() {
     }
   };
 
+  const getAppleStoreBadge = () => {
+    switch (language) {
+      case 'tr': return '/assets/images/Download_on_the_App_Store_Badge_TR_RGB_blk_100217.svg';
+      case 'de': return '/assets/images/Download_on_the_App_Store_Badge_DE_RGB_blk_092917.svg';
+      case 'en':
+      default: return '/assets/images/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg';
+    }
+  };
+
   return (
     <div className="fixed left-0 top-1/2 -translate-y-1/2 z-[60] group flex items-center">
       {/* Collapsed Tab */}
@@ -44,25 +53,22 @@ export default function SalutbabeWidget() {
         </div>
 
         {/* Content Area */}
-        <div className="relative z-20 p-6 md:p-8 flex flex-col -mt-2">
+        <div className="relative z-20 px-8 py-6 md:px-10 md:py-8 flex flex-col -mt-2">
           
-          <p className="text-[#FBDD09] text-xs font-bold tracking-widest uppercase mb-4">{`Anneden Anneye Güvenle`}</p>
+          <p className="text-[#FBDD09] text-sm md:text-xs font-bold tracking-widest uppercase mb-6">{`Anneden Anneye Güvenle`}</p>
           
-          <p className="text-white/60 text-sm leading-relaxed mb-8">
+          <p className="text-white/70 text-sm leading-relaxed mb-10">
             İkinci el bebek kıyafetleri satış platformu. Bebeklerinizin küçülen kıyafetlerini güvenle satın, yeni ihtiyaçlarını uygun fiyatlarla karşılayın.
           </p>
 
           {/* Store Buttons */}
           <div className="flex flex-row gap-3 mt-auto h-[52px]">
-            <a href="#" className="flex-1 flex items-center justify-center bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl transition-all duration-300 hover:-translate-y-1">
-              {/* Apple Icon */}
-              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" className="text-white">
-                <path d="M12 20.6c-1.6 1.5-3.3 1.5-4.8.1-1.3-1.2-2.1-2.9-2.2-4.9-.1-2.8 1.5-4.9 4.1-5.1 1.2-.1 2.3.5 3.1.5.8 0 2.1-.7 3.5-.6 1.4.1 2.6.7 3.3 1.8-3 1.8-2.5 5.9.8 7.3-1 2.6-2.5 4.9-4.7 4.9-1.2 0-2.3-.6-3.1-.6-.9 0-2.1.6-3.1.6zM15 4.6c.8-1 1.3-2.4 1.1-3.8-1.2.1-2.7.8-3.6 1.8-.8.8-1.3 2.1-1.2 3.6 1.3-.1 2.7-.7 3.7-1.6z"/>
-              </svg>
+            <a href="https://apps.apple.com/tr/app/salutbabe/id6759988511?l=tr" target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center transition-all duration-300 hover:-translate-y-1">
+              <img src={getAppleStoreBadge()} alt="Download on the App Store" className="h-full w-auto" />
             </a>
             
-            <a href="#" className="flex-1 flex items-center justify-center transition-all duration-300 hover:-translate-y-1">
-              <img src={getGooglePlayBadge()} alt="Google Play" className="h-full w-auto" />
+            <a href="https://play.google.com/store/apps/details?id=com.salutbabe&hl=tr&pli=1" target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center transition-all duration-300 hover:-translate-y-1">
+              <img src={getGooglePlayBadge()} alt="Get it on Google Play" className="h-full w-auto" />
             </a>
           </div>
 
