@@ -65,7 +65,7 @@ export default function SalutbabeWidget() {
         </div>
 
         {/* Content Area */}
-        <div className="relative z-20 flex flex-col mt-2 mb-4 w-full">
+        <div className="relative z-20 flex flex-col mt-8 mb-4 w-full">
           
           <p className="text-[#FBDD09] text-sm md:text-xs font-bold tracking-widest uppercase mb-6" style={{ paddingLeft: '32px', paddingRight: '32px' }}>{`Anneden Anneye Güvenle`}</p>
           
