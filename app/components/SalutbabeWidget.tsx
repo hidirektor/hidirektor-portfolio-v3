@@ -34,7 +34,7 @@ export default function SalutbabeWidget() {
       </div>
 
       {/* Expanded Panel */}
-      <div className="absolute left-10 md:left-12 top-1/2 -translate-y-1/2 w-[280px] md:w-[340px] bg-[#0a0a0a]/90 backdrop-blur-3xl border border-white/10 rounded-r-3xl shadow-[0_0_50px_rgba(228,0,124,0.3)] overflow-hidden opacity-0 -translate-x-full pointer-events-none group-hover:opacity-100 group-hover:translate-x-0 group-hover:pointer-events-auto transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] flex flex-col z-10">
+      <div className="absolute left-10 md:left-12 top-1/2 -translate-y-1/2 w-[280px] md:w-[340px] bg-[#0a0a0a]/90 backdrop-blur-3xl border border-white/10 rounded-3xl shadow-[0_0_50px_rgba(228,0,124,0.3)] overflow-hidden opacity-0 -translate-x-full pointer-events-none group-hover:opacity-100 group-hover:translate-x-0 group-hover:pointer-events-auto transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] flex flex-col z-10">
         
         {/* Header Image Area */}
         <div className="relative w-full h-40 md:h-48 bg-[#050505]">
