@@ -6,16 +6,16 @@ export default function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer className="relative w-full pt-32 md:pt-48 pb-16 md:pb-24 flex flex-col items-center justify-center text-white bg-transparent">
+    <footer className="relative w-full pt-32 md:pt-48 pb-16 md:pb-24 flex flex-col items-center justify-center text-black dark:text-white bg-transparent">
       
       {/* Giant Text Layered Effect */}
       <div className="relative w-full flex justify-center items-center leading-none select-none pointer-events-auto cursor-default">
         <div className="relative w-full flex justify-center items-center">
           
           {/* Background Text (Relative to give height to the footer) */}
-          <div className="relative text-[20vw] md:text-[18vw] font-bold tracking-tighter text-white/5 leading-[0.75] z-0 flex whitespace-nowrap justify-center">
+          <div className="relative text-[20vw] md:text-[18vw] font-bold tracking-tighter text-black/5 dark:text-white/5 leading-[0.75] z-0 flex whitespace-nowrap justify-center">
             {t('footer.backgroundText').split('').map((char, i) => (
-              <span key={i} className="transition-colors duration-300 hover:text-white/20">
+              <span key={i} className="transition-colors duration-300 hover:text-black/20 dark:hover:text-white/20">
                 {char}
               </span>
             ))}
