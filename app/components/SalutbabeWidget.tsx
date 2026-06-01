@@ -28,7 +28,7 @@ export default function SalutbabeWidget() {
     <div className="fixed left-0 top-1/2 -translate-y-1/2 z-[60] group flex items-center">
       {/* Collapsed Tab */}
       <div className="w-10 md:w-12 h-32 md:h-40 bg-gradient-to-b from-[#E4007C] to-[#FBDD09] rounded-r-2xl shadow-2xl flex items-center justify-center cursor-pointer overflow-hidden border border-white/20 relative z-20 transition-all duration-300">
-        <span className="text-white font-bold tracking-widest -rotate-90 whitespace-nowrap text-xs md:text-sm drop-shadow-md group-hover:opacity-0 transition-opacity duration-300">
+        <span className="text-white font-bold tracking-widest -rotate-90 whitespace-nowrap text-xs md:text-sm drop-shadow-md transition-opacity duration-300">
           salutbabe
         </span>
       </div>
@@ -65,16 +65,16 @@ export default function SalutbabeWidget() {
         </div>
 
         {/* Content Area */}
-        <div className="relative z-20 flex flex-col" style={{ padding: '32px' }}>
+        <div className="relative z-20 flex flex-col mt-2 mb-4 w-full">
           
-          <p className="text-[#FBDD09] text-sm md:text-xs font-bold tracking-widest uppercase mb-6">{`Anneden Anneye Güvenle`}</p>
+          <p className="text-[#FBDD09] text-sm md:text-xs font-bold tracking-widest uppercase mb-6 px-10 md:px-12">{`Anneden Anneye Güvenle`}</p>
           
-          <p className="text-white/70 text-sm leading-relaxed mb-10">
+          <p className="text-white/70 text-sm leading-relaxed mb-10 px-10 md:px-12">
             İkinci el bebek kıyafetleri satış platformu. Bebeklerinizin küçülen kıyafetlerini güvenle satın, yeni ihtiyaçlarını uygun fiyatlarla karşılayın.
           </p>
 
           {/* Store Buttons */}
-          <div className="flex flex-row justify-center items-center gap-4 mt-6 h-10 w-full">
+          <div className="flex flex-row justify-center items-center gap-4 mt-6 h-10 w-full px-10 md:px-12">
             <a href="https://apps.apple.com/tr/app/salutbabe/id6759988511?l=tr" target="_blank" rel="noopener noreferrer" className="h-full transition-all duration-300 hover:-translate-y-1">
               <img src={getAppleStoreBadge()} alt="Download on the App Store" className="h-full w-auto object-contain" />
             </a>
