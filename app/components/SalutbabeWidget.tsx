@@ -62,13 +62,13 @@ export default function SalutbabeWidget() {
           </p>
 
           {/* Store Buttons */}
-          <div className="flex flex-row gap-3 mt-auto h-[52px]">
-            <a href="https://apps.apple.com/tr/app/salutbabe/id6759988511?l=tr" target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center transition-all duration-300 hover:-translate-y-1">
-              <img src={getAppleStoreBadge()} alt="Download on the App Store" className="h-full w-auto" />
+          <div className="flex flex-row items-center gap-3 mt-auto h-10">
+            <a href="https://apps.apple.com/tr/app/salutbabe/id6759988511?l=tr" target="_blank" rel="noopener noreferrer" className="h-full transition-all duration-300 hover:-translate-y-1">
+              <img src={getAppleStoreBadge()} alt="Download on the App Store" className="h-full w-auto object-contain" />
             </a>
             
-            <a href="https://play.google.com/store/apps/details?id=com.salutbabe&hl=tr&pli=1" target="_blank" rel="noopener noreferrer" className="flex-1 flex items-center justify-center transition-all duration-300 hover:-translate-y-1">
-              <img src={getGooglePlayBadge()} alt="Get it on Google Play" className="h-full w-auto" />
+            <a href="https://play.google.com/store/apps/details?id=com.salutbabe&hl=tr&pli=1" target="_blank" rel="noopener noreferrer" className="h-full transition-all duration-300 hover:-translate-y-1">
+              <img src={getGooglePlayBadge()} alt="Get it on Google Play" className="h-full w-auto object-contain" />
             </a>
           </div>
 
