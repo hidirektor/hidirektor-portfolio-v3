@@ -72,7 +72,7 @@ export default function ProjectsSection() {
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-50 group-hover:from-[#E4007C]/50 group-hover:via-[#FBDD09]/50 group-hover:to-transparent transition-all duration-500 z-0"></div>
               
               {/* Card content */}
-              <div className="relative h-full bg-[#0a0a0a] rounded-3xl p-[40px] lg:p-[50px] flex flex-col justify-between z-10 overflow-hidden">
+              <div className="relative h-full bg-[#0a0a0a] rounded-3xl flex flex-col justify-between z-10 overflow-hidden" style={{ padding: '40px' }}>
                 
                 {/* Radial glow effect on hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
