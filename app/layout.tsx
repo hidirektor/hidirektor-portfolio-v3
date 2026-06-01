@@ -2,6 +2,7 @@ import type {Metadata} from "next";
 import {Inter} from "next/font/google";
 import "./globals.css";
 import SettingsWidget from "./components/SettingsWidget";
+import SalutbabeWidget from "./components/SalutbabeWidget";
 import {LanguageProvider} from "./context/LanguageContext";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
@@ -36,6 +37,7 @@ export default function RootLayout({
         <LanguageProvider>
           {children}
           <SettingsWidget />
+          <SalutbabeWidget />
         </LanguageProvider>
       </body>
     </html>
