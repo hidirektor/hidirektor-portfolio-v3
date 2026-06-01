@@ -44,16 +44,28 @@ export default function SalutbabeWidget() {
             <h3 className="text-2xl font-black text-white font-display tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">salutbabe</h3>
           </div>
 
-          <Image 
-            src="/assets/images/salutbabe_mockup.png" 
-            alt="Salutbabe App" 
-            fill 
-            className="object-cover object-top opacity-80"
-          />
+          <div className="absolute inset-0 flex justify-center gap-4 px-6 pt-12 opacity-85 z-0">
+            <div className="relative w-1/2 h-full rounded-t-2xl overflow-hidden border border-white/10 shadow-2xl transform -rotate-2 hover:rotate-0 transition-transform duration-500">
+              <Image 
+                src="/assets/images/230x498bb.webp" 
+                alt="Salutbabe App Screen 1" 
+                fill 
+                className="object-cover object-top"
+              />
+            </div>
+            <div className="relative w-1/2 h-full rounded-t-2xl overflow-hidden border border-white/10 shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
+              <Image 
+                src="/assets/images/230x498bb-2.webp" 
+                alt="Salutbabe App Screen 2" 
+                fill 
+                className="object-cover object-top"
+              />
+            </div>
+          </div>
         </div>
 
         {/* Content Area */}
-        <div className="relative z-20 p-6 md:p-8 flex flex-col -mt-2">
+        <div className="relative z-20 px-8 py-6 md:px-10 md:py-8 flex flex-col -mt-2">
           
           <p className="text-[#FBDD09] text-sm md:text-xs font-bold tracking-widest uppercase mb-6">{`Anneden Anneye Güvenle`}</p>
           
