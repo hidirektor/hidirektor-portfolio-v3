@@ -27,14 +27,14 @@ export default function SalutbabeWidget() {
   return (
     <div className="fixed left-0 top-1/2 -translate-y-1/2 z-[60] group flex items-center">
       {/* Collapsed Tab */}
-      <div className="w-10 md:w-12 h-32 md:h-40 bg-gradient-to-b from-[#E4007C] to-[#FBDD09] rounded-r-2xl shadow-2xl flex items-center justify-center cursor-pointer overflow-hidden border border-white/20 relative z-20 group-hover:w-2 transition-all duration-300">
+      <div className="w-10 md:w-12 h-32 md:h-40 bg-gradient-to-b from-[#E4007C] to-[#FBDD09] rounded-r-2xl shadow-2xl flex items-center justify-center cursor-pointer overflow-hidden border border-white/20 relative z-20 transition-all duration-300">
         <span className="text-white font-bold tracking-widest -rotate-90 whitespace-nowrap text-xs md:text-sm drop-shadow-md group-hover:opacity-0 transition-opacity duration-300">
           salutbabe
         </span>
       </div>
 
       {/* Expanded Panel */}
-      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[280px] md:w-[340px] bg-[#0a0a0a]/80 backdrop-blur-3xl border border-white/10 rounded-r-3xl shadow-[0_0_50px_rgba(228,0,124,0.3)] overflow-hidden opacity-0 -translate-x-full pointer-events-none group-hover:opacity-100 group-hover:translate-x-0 group-hover:pointer-events-auto transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] flex flex-col z-10">
+      <div className="absolute left-10 md:left-12 top-1/2 -translate-y-1/2 w-[280px] md:w-[340px] bg-[#0a0a0a]/90 backdrop-blur-3xl border border-white/10 rounded-r-3xl shadow-[0_0_50px_rgba(228,0,124,0.3)] overflow-hidden opacity-0 -translate-x-full pointer-events-none group-hover:opacity-100 group-hover:translate-x-0 group-hover:pointer-events-auto transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] flex flex-col z-10">
         
         {/* Header Image Area */}
         <div className="relative w-full h-40 md:h-48 bg-[#050505]">
@@ -53,7 +53,7 @@ export default function SalutbabeWidget() {
         </div>
 
         {/* Content Area */}
-        <div className="relative z-20 px-8 py-6 md:px-10 md:py-8 flex flex-col -mt-2">
+        <div className="relative z-20 p-6 md:p-8 flex flex-col -mt-2">
           
           <p className="text-[#FBDD09] text-sm md:text-xs font-bold tracking-widest uppercase mb-6">{`Anneden Anneye Güvenle`}</p>
           
@@ -62,7 +62,7 @@ export default function SalutbabeWidget() {
           </p>
 
           {/* Store Buttons */}
-          <div className="flex flex-row items-center gap-3 mt-auto h-10">
+          <div className="flex flex-row justify-center items-center gap-4 mt-6 h-10 w-full">
             <a href="https://apps.apple.com/tr/app/salutbabe/id6759988511?l=tr" target="_blank" rel="noopener noreferrer" className="h-full transition-all duration-300 hover:-translate-y-1">
               <img src={getAppleStoreBadge()} alt="Download on the App Store" className="h-full w-auto object-contain" />
             </a>
