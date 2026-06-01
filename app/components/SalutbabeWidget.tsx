@@ -67,10 +67,10 @@ export default function SalutbabeWidget() {
         {/* Content Area */}
         <div className="relative z-20 flex flex-col w-full">
           
-          <p className="text-[#FBDD09] text-sm md:text-xs font-bold tracking-widest uppercase" style={{ paddingLeft: '32px', paddingRight: '32px', marginTop: '32px', marginBottom: '16px' }}>{`Anneden Anneye Güvenle`}</p>
+          <p className="text-[#FBDD09] text-sm md:text-xs font-bold tracking-widest uppercase" style={{ paddingLeft: '32px', paddingRight: '32px', marginTop: '32px', marginBottom: '16px' }}>{t('salutbabe.title')}</p>
           
           <p className="text-white/70 text-sm leading-relaxed" style={{ paddingLeft: '32px', paddingRight: '32px', marginBottom: '32px' }}>
-            İkinci el bebek kıyafetleri satış platformu. Bebeklerinizin küçülen kıyafetlerini güvenle satın, yeni ihtiyaçlarını uygun fiyatlarla karşılayın.
+            {t('salutbabe.description')}
           </p>
 
           {/* Store Buttons */}
