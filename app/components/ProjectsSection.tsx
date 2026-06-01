@@ -47,17 +47,17 @@ export default function ProjectsSection() {
   ];
 
   return (
-    <section id="projects" className="py-32 bg-[#050505] relative">
+    <section id="projects" className="py-32 bg-white dark:bg-[#050505] relative">
       {/* Background glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[500px] bg-[#E4007C]/5 blur-[120px] rounded-full pointer-events-none z-0"></div>
       
       <div className="wrap relative z-10">
         <div className="flex flex-col items-center text-center" style={{ marginBottom: '80px' }}>
           <p className="text-[#E4007C] text-sm font-bold tracking-widest uppercase mb-4">{t('projects.tag')}</p>
-          <h2 className="text-4xl md:text-6xl font-black tracking-tight mb-6 text-white font-display">
+          <h2 className="text-4xl md:text-6xl font-black tracking-tight mb-6 text-black dark:text-white font-display">
             {t('projects.title')}
           </h2>
-          <p className="text-white/50 max-w-2xl text-lg font-light leading-relaxed">
+          <p className="text-black/50 dark:text-white/50 max-w-2xl text-lg font-light leading-relaxed">
             {t('projects.description')}
           </p>
         </div>
@@ -69,25 +69,25 @@ export default function ProjectsSection() {
               className="group relative p-[1px] rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-2"
             >
               {/* Animated border gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent opacity-50 group-hover:from-[#E4007C]/50 group-hover:via-[#FBDD09]/50 group-hover:to-transparent transition-all duration-500 z-0"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-black/10 dark:from-white/10 to-transparent opacity-50 group-hover:from-[#E4007C]/50 group-hover:via-[#FBDD09]/50 group-hover:to-transparent transition-all duration-500 z-0"></div>
               
               {/* Card content */}
-              <div className="relative h-full bg-[#0a0a0a] rounded-3xl flex flex-col justify-between z-10 overflow-hidden" style={{ padding: '40px' }}>
+              <div className="relative h-full bg-zinc-50 dark:bg-[#0a0a0a] rounded-3xl flex flex-col justify-between z-10 overflow-hidden" style={{ padding: '40px' }}>
                 
                 {/* Radial glow effect on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-black/[0.03] dark:from-white/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
 
                 <div className="relative z-20">
                   <div className="flex flex-wrap items-start justify-between gap-6 mb-10">
-                    <h3 className="text-xl md:text-2xl font-bold tracking-tight text-white font-display group-hover:text-[#E4007C] transition-colors duration-300 flex-1 min-w-[200px] leading-tight">
+                    <h3 className="text-xl md:text-2xl font-bold tracking-tight text-black dark:text-white font-display group-hover:text-[#E4007C] transition-colors duration-300 flex-1 min-w-[200px] leading-tight">
                       {project.title}
                     </h3>
-                    <span className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-white/5 border border-white/10 text-xs font-bold text-white/50 whitespace-nowrap shrink-0 mt-1">
+                    <span className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-xs font-bold text-black/50 dark:text-white/50 whitespace-nowrap shrink-0 mt-1">
                       {project.date}
                     </span>
                   </div>
                   
-                  <p className="text-base text-white/50 mb-12 leading-relaxed font-light">
+                  <p className="text-base text-black/50 dark:text-white/50 mb-12 leading-relaxed font-light">
                     {project.description}
                   </p>
                 </div>
@@ -97,7 +97,7 @@ export default function ProjectsSection() {
                     {project.tech.map((t) => (
                       <span 
                         key={t}
-                        className="px-4 py-2 rounded-xl bg-white/[0.04] border border-white/[0.08] text-sm font-semibold tracking-wide text-white/80"
+                        className="px-4 py-2 rounded-xl bg-black/[0.04] dark:bg-white/[0.04] border border-black/[0.08] dark:border-white/[0.08] text-sm font-semibold tracking-wide text-black/80 dark:text-white/80"
                       >
                         {t}
                       </span>
@@ -111,7 +111,7 @@ export default function ProjectsSection() {
                         href={link.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm font-bold text-white/60 hover:text-white flex items-center gap-2 transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-white hover:after:w-full after:transition-all after:duration-300 pb-1"
+                        className="text-sm font-bold text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white flex items-center gap-2 transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-black dark:after:bg-white hover:after:w-full after:transition-all after:duration-300 pb-1"
                       >
                         {link.label} 
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
