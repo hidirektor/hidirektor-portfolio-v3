@@ -1,6 +1,5 @@
 'use client';
 
-import {Bike, Headphones} from 'lucide-react';
 import {useLanguage} from '../context/LanguageContext';
 
 export default function EntertainmentSection() {
@@ -26,11 +25,15 @@ export default function EntertainmentSection() {
           
           <div className="flex flex-wrap gap-4 mb-8">
             <div className="flex items-center gap-4 px-6 py-4 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-md">
-              <Bike className="w-6 h-6 text-[#FBDD09]" strokeWidth={2.5} />
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 text-[#FBDD09]">
+                <circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M15 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm-3 11.5V14l-3-3 4-3 2 3h2"/>
+              </svg>
               <span className="text-sm font-bold text-white tracking-wide">{t('entertainment.cycling')}</span>
             </div>
             <div className="flex items-center gap-4 px-6 py-4 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-md">
-              <Headphones className="w-6 h-6 text-[#E4007C]" strokeWidth={2.5} />
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 text-[#E4007C]">
+                <path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/>
+              </svg>
               <span className="text-sm font-bold text-white tracking-wide">{t('entertainment.music')}</span>
             </div>
           </div>
