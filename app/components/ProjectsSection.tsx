@@ -52,7 +52,7 @@ export default function ProjectsSection() {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[500px] bg-[#E4007C]/5 blur-[120px] rounded-full pointer-events-none z-0"></div>
       
       <div className="wrap relative z-10">
-        <div className="mb-20 flex flex-col items-center text-center">
+        <div className="flex flex-col items-center text-center" style={{ marginBottom: '80px' }}>
           <p className="text-[#E4007C] text-sm font-bold tracking-widest uppercase mb-4">{t('projects.tag')}</p>
           <h2 className="text-4xl md:text-6xl font-black tracking-tight mb-6 text-white font-display">
             {t('projects.title')}
