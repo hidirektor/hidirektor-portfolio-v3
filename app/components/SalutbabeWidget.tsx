@@ -65,16 +65,16 @@ export default function SalutbabeWidget() {
         </div>
 
         {/* Content Area */}
-        <div className="relative z-20 flex flex-col mt-8 mb-4 w-full">
+        <div className="relative z-20 flex flex-col w-full">
           
-          <p className="text-[#FBDD09] text-sm md:text-xs font-bold tracking-widest uppercase mb-6" style={{ paddingLeft: '32px', paddingRight: '32px' }}>{`Anneden Anneye Güvenle`}</p>
+          <p className="text-[#FBDD09] text-sm md:text-xs font-bold tracking-widest uppercase" style={{ paddingLeft: '32px', paddingRight: '32px', marginTop: '32px', marginBottom: '16px' }}>{`Anneden Anneye Güvenle`}</p>
           
-          <p className="text-white/70 text-sm leading-relaxed mb-10" style={{ paddingLeft: '32px', paddingRight: '32px' }}>
+          <p className="text-white/70 text-sm leading-relaxed" style={{ paddingLeft: '32px', paddingRight: '32px', marginBottom: '32px' }}>
             İkinci el bebek kıyafetleri satış platformu. Bebeklerinizin küçülen kıyafetlerini güvenle satın, yeni ihtiyaçlarını uygun fiyatlarla karşılayın.
           </p>
 
           {/* Store Buttons */}
-          <div className="flex flex-row justify-center items-center gap-4 mt-6 h-10 w-full" style={{ paddingLeft: '32px', paddingRight: '32px' }}>
+          <div className="flex flex-row justify-center items-center gap-4 h-10 w-full" style={{ paddingLeft: '32px', paddingRight: '32px', marginBottom: '32px' }}>
             <a href="https://apps.apple.com/tr/app/salutbabe/id6759988511?l=tr" target="_blank" rel="noopener noreferrer" className="h-full transition-all duration-300 hover:-translate-y-1">
               <img src={getAppleStoreBadge()} alt="Download on the App Store" className="h-full w-auto object-contain" />
             </a>
