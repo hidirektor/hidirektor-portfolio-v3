@@ -1,5 +1,6 @@
 'use client';
 
+import {Bike, Headphones} from 'lucide-react';
 import {useLanguage} from '../context/LanguageContext';
 
 export default function EntertainmentSection() {
@@ -24,12 +25,12 @@ export default function EntertainmentSection() {
           </p>
           
           <div className="flex flex-wrap gap-4 mb-8">
-            <div className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/[0.03] border border-white/10 backdrop-blur-md">
-              <span className="text-2xl">🚴‍♂️</span>
+            <div className="flex items-center gap-4 px-6 py-4 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-md">
+              <Bike className="w-6 h-6 text-[#FBDD09]" strokeWidth={2.5} />
               <span className="text-sm font-bold text-white tracking-wide">{t('entertainment.cycling')}</span>
             </div>
-            <div className="flex items-center gap-3 px-5 py-3 rounded-2xl bg-white/[0.03] border border-white/10 backdrop-blur-md">
-              <span className="text-2xl">🎧</span>
+            <div className="flex items-center gap-4 px-6 py-4 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-md">
+              <Headphones className="w-6 h-6 text-[#E4007C]" strokeWidth={2.5} />
               <span className="text-sm font-bold text-white tracking-wide">{t('entertainment.music')}</span>
             </div>
           </div>
