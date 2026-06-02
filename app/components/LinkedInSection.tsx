@@ -80,18 +80,23 @@ export default function LinkedInSection() {
             <div className="w-20 h-20 rounded-full bg-[#0077b5]/10 flex items-center justify-center text-[#0077b5] mb-2">
               <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
             </div>
-            <p className="text-black/40 dark:text-white/40 text-lg font-light max-w-md leading-relaxed">
-              LinkedIn API olmadan post çekimi mümkün değil.<br/>
-              <span className="text-black/60 dark:text-white/60 font-medium">data/linkedin.json</span> dosyasına postlarınızı ekleyin.
+            <h3 className="text-2xl font-bold text-black dark:text-white font-display">
+              {t('linkedin.empty.title')}
+            </h3>
+            <p className="text-black/50 dark:text-white/50 text-lg font-light max-w-md leading-relaxed">
+              {t('linkedin.empty.description')}
             </p>
             <a
               href="https://www.linkedin.com/in/hidirektor/recent-activity/shares/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 text-[#0077b5] font-bold text-sm tracking-widest uppercase hover:opacity-70 transition-opacity"
+              className="group relative p-[1px] rounded-full overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#0077b5]/10 mt-2"
             >
-              LinkedIn Profilini Görüntüle
-              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              <div className="absolute inset-0 bg-gradient-to-r from-[#0077b5]/40 via-[#0077b5]/10 to-transparent opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative bg-white dark:bg-[#050505] rounded-full px-8 py-4 flex items-center justify-center gap-3 z-10 transition-colors duration-500 group-hover:bg-[#f8fafc] dark:group-hover:bg-[#0a0a0a]">
+                <span className="font-bold text-sm tracking-widest text-[#0077b5] uppercase">{t('linkedin.empty.cta')}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-500 group-hover:translate-x-1 text-[#0077b5]"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </div>
             </a>
           </div>
         ) : (
