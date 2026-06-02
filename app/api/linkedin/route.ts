@@ -59,7 +59,7 @@ async function scrapeLinkedInActivity(): Promise<Post[] | null> {
 
     // LinkedIn sometimes embeds activity data in a JSON blob inside <code> tags
     // Pattern: {"activityFeed":...} or similar embedded data
-    const codeMatches = html.matchAll(/<code[^>]*>(.*?)<\/code>/gs);
+    const codeMatches = html.matchAll(/<code[^>]*>([\s\S]*?)<\/code>/g);
     const posts: Post[] = [];
 
     for (const match of codeMatches) {
