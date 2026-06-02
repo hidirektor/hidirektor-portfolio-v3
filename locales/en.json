@@ -69,5 +69,48 @@
   "salutbabe": {
     "title": "SAFELY FROM MOTHER TO MOTHER",
     "description": "Second-hand baby clothes sales platform. Safely sell your babies' outgrown clothes, meet their new needs at affordable prices."
+  },
+  "medium": {
+    "tag": "Articles",
+    "title": "Medium Articles",
+    "description": "Read my latest thoughts, tutorials, and insights on software architecture, IoT, and more.",
+    "button": "Visit Medium Profile",
+    "items": {
+      "article1": {
+        "title": "Building Scalable IoT Systems with Node.js",
+        "date": "May 12, 2024",
+        "description": "A deep dive into architecting high-performance IoT backends capable of handling real-time messages."
+      },
+      "article2": {
+        "title": "Microservices vs Monolith: When to switch?",
+        "date": "Jan 24, 2024",
+        "description": "Analyzing the trade-offs between monolithic architectures and microservices, and how to decide."
+      },
+      "article3": {
+        "title": "Mastering Next.js Server Components",
+        "date": "Nov 05, 2023",
+        "description": "Exploring how Server Components change the way we build web applications for better performance."
+      }
+    }
+  },
+  "linkedin": {
+    "tag": "Posts",
+    "title": "LinkedIn Posts",
+    "description": "Stay updated with my professional journey, achievements, and industry insights.",
+    "button": "Visit LinkedIn Profile",
+    "items": {
+      "post1": {
+        "content": "Thrilled to announce that our IoT project won the TÜBİTAK 2209-B award! 🎉 Grateful for the amazing team and support. #IoT #TUBITAK",
+        "date": "April 2025"
+      },
+      "post2": {
+        "content": "Just finished reading 'Clean Architecture'. It's fascinating how separating concerns improves maintainability. Highly recommend! 📚 #SoftwareArchitecture",
+        "date": "February 2025"
+      },
+      "post3": {
+        "content": "Excited to share that I've successfully deployed our new microservices cluster using Kubernetes! The journey was challenging but worth it. 🚀 #DevOps",
+        "date": "December 2024"
+      }
+    }
   }
 }

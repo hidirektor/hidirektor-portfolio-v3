@@ -3,6 +3,8 @@ import HeroSection from "./components/HeroSection";
 import ScrollingBanner from "./components/ScrollingBanner";
 import TrustedLogos from "./components/TrustedLogos";
 import ProjectsSection from "./components/ProjectsSection";
+import MediumSection from "./components/MediumSection";
+import LinkedInSection from "./components/LinkedInSection";
 import EntertainmentSection from "./components/EntertainmentSection";
 import Footer from "./components/Footer";
 
@@ -15,6 +17,8 @@ export default function Home() {
         <ScrollingBanner />
         <TrustedLogos />
         <ProjectsSection />
+        <MediumSection />
+        <LinkedInSection />
         <EntertainmentSection />
         <Footer />
       </main>

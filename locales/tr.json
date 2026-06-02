@@ -69,5 +69,48 @@
   "salutbabe": {
     "title": "ANNEDEN ANNEYE GÜVENLE",
     "description": "İkinci el bebek kıyafetleri satış platformu. Bebeklerinizin küçülen kıyafetlerini güvenle satın, yeni ihtiyaçlarını uygun fiyatlarla karşılayın."
+  },
+  "medium": {
+    "tag": "Makaleler",
+    "title": "Medium Makaleleri",
+    "description": "Yazılım mimarisi, IoT ve daha fazlası hakkındaki en son düşüncelerimi, eğitimlerimi ve içgörülerimi okuyun.",
+    "button": "Medium Profilini Ziyaret Et",
+    "items": {
+      "article1": {
+        "title": "Node.js ile Ölçeklenebilir IoT Sistemleri Geliştirmek",
+        "date": "12 Mayıs 2024",
+        "description": "Gerçek zamanlı mesajları yönetebilen yüksek performanslı IoT backend mimarilerine derinlemesine bir bakış."
+      },
+      "article2": {
+        "title": "Mikroservisler ve Monolit: Ne Zaman Geçiş Yapmalı?",
+        "date": "24 Ocak 2024",
+        "description": "Monolitik mimariler ile mikroservisler arasındaki ödünleşimleri analiz etmek ve nasıl karar verileceği."
+      },
+      "article3": {
+        "title": "Next.js Sunucu Bileşenlerinde (Server Components) Ustalaşmak",
+        "date": "5 Kasım 2023",
+        "description": "Sunucu bileşenlerinin daha iyi performans için web uygulamaları geliştirme şeklimizi nasıl değiştirdiğini keşfetmek."
+      }
+    }
+  },
+  "linkedin": {
+    "tag": "Gönderiler",
+    "title": "LinkedIn Gönderileri",
+    "description": "Profesyonel yolculuğum, başarılarım ve sektördeki içgörülerimden haberdar olun.",
+    "button": "LinkedIn Profilini Ziyaret Et",
+    "items": {
+      "post1": {
+        "content": "IoT projemizin TÜBİTAK 2209-B ödülü kazandığını duyurmaktan heyecan duyuyorum! 🎉 Harika takımıma ve destek verenlere minnettarım. #IoT #TUBITAK",
+        "date": "Nisan 2025"
+      },
+      "post2": {
+        "content": "Robert C. Martin'in 'Clean Architecture' kitabını yeni bitirdim. Endişelerin ayrılmasının kodun bakımını ne kadar kolaylaştırdığı büyüleyici. 📚 #YazılımMimarisi",
+        "date": "Şubat 2025"
+      },
+      "post3": {
+        "content": "Yeni mikroservis kümemizi Kubernetes kullanarak başarıyla dağıttığımı paylaşmaktan heyecan duyuyorum! 🚀 #Kubernetes #DevOps",
+        "date": "Aralık 2024"
+      }
+    }
   }
 }

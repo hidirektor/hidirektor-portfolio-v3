@@ -69,5 +69,48 @@
   "salutbabe": {
     "title": "SICHER VON MUTTER ZU MUTTER",
     "description": "Verkaufsplattform für Second-Hand-Babykleidung. Verkaufen Sie die zu klein gewordene Kleidung Ihrer Babys sicher und decken Sie ihre neuen Bedürfnisse zu erschwinglichen Preisen."
+  },
+  "medium": {
+    "tag": "Artikel",
+    "title": "Medium Artikel",
+    "description": "Lesen Sie meine neuesten Gedanken, Tutorials und Erkenntnisse über Softwarearchitektur, IoT und mehr.",
+    "button": "Medium-Profil besuchen",
+    "items": {
+      "article1": {
+        "title": "Aufbau skalierbarer IoT-Systeme mit Node.js",
+        "date": "12. Mai 2024",
+        "description": "Ein tiefer Einblick in die Architektur leistungsstarker IoT-Backends, die in der Lage sind, Echtzeitnachrichten zu verarbeiten."
+      },
+      "article2": {
+        "title": "Microservices vs. Monolith: Wann wechseln?",
+        "date": "24. Jan. 2024",
+        "description": "Analyse der Kompromisse zwischen monolithischen Architekturen und Microservices und wie man sich entscheidet."
+      },
+      "article3": {
+        "title": "Meisterung der Next.js Server Components",
+        "date": "05. Nov. 2023",
+        "description": "Untersuchung, wie Server Components die Art und Weise verändern, wie wir Webanwendungen für eine bessere Leistung entwickeln."
+      }
+    }
+  },
+  "linkedin": {
+    "tag": "Beiträge",
+    "title": "LinkedIn Beiträge",
+    "description": "Bleiben Sie auf dem Laufenden über meine berufliche Reise, Erfolge und Brancheneinblicke.",
+    "button": "LinkedIn-Profil besuchen",
+    "items": {
+      "post1": {
+        "content": "Ich freue mich riesig, Ihnen mitteilen zu können, dass unser IoT-Projekt mit dem TÜBİTAK 2209-B-Preis ausgezeichnet wurde! 🎉 Vielen Dank an das großartige Team. #IoT",
+        "date": "April 2025"
+      },
+      "post2": {
+        "content": "Ich habe gerade 'Clean Architecture' gelesen. Es ist faszinierend, wie die Trennung von Belangen die Wartbarkeit verbessert. Sehr zu empfehlen! 📚 #Softwarearchitektur",
+        "date": "Februar 2025"
+      },
+      "post3": {
+        "content": "Ich freue mich, Ihnen mitteilen zu können, dass ich unseren neuen Microservices-Cluster erfolgreich mit Kubernetes bereitgestellt habe! 🚀 #DevOps",
+        "date": "Dezember 2024"
+      }
+    }
   }
 }
