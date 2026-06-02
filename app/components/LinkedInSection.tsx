@@ -1,30 +1,47 @@
 'use client';
 
+import {useEffect, useState} from 'react';
 import {useLanguage} from '../context/LanguageContext';
+
+interface Post {
+  id: string;
+  content: string;
+  date: string;
+  url: string;
+}
 
 export default function LinkedInSection() {
   const { t } = useLanguage();
-  
-  const posts = [
-    {
-      content: t('linkedin.items.post1.content'),
-      date: t('linkedin.items.post1.date'),
-      url: 'https://www.linkedin.com/in/hidirektor/'
-    },
-    {
-      content: t('linkedin.items.post2.content'),
-      date: t('linkedin.items.post2.date'),
-      url: 'https://www.linkedin.com/in/hidirektor/'
-    },
-    {
-      content: t('linkedin.items.post3.content'),
-      date: t('linkedin.items.post3.date'),
-      url: 'https://www.linkedin.com/in/hidirektor/'
-    }
-  ];
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch('/api/linkedin')
+      .then(res => res.json())
+      .then(data => {
+        if (data.posts && data.posts.length > 0) {
+          setPosts(data.posts);
+        } else {
+          // Fallback
+          setPosts([
+            { id: '1', content: t('linkedin.items.post1.content'), date: t('linkedin.items.post1.date'), url: 'https://www.linkedin.com/in/hidirektor/' },
+            { id: '2', content: t('linkedin.items.post2.content'), date: t('linkedin.items.post2.date'), url: 'https://www.linkedin.com/in/hidirektor/' },
+            { id: '3', content: t('linkedin.items.post3.content'), date: t('linkedin.items.post3.date'), url: 'https://www.linkedin.com/in/hidirektor/' }
+          ]);
+        }
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error('Failed to fetch linkedin posts', err);
+        setLoading(false);
+      });
+  }, [t]);
+
+  const latest = posts.length > 0 ? posts[0] : null;
+  const others = posts.length > 1 ? posts.slice(1) : [];
 
   return (
-    <section id="linkedin" className="py-32 bg-white dark:bg-[#050505] relative">
+    <section id="linkedin" className="py-32 bg-white dark:bg-[#050505] relative overflow-hidden">
       {/* Background glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[500px] bg-[#0077b5]/5 blur-[120px] rounded-full pointer-events-none z-0"></div>
       
@@ -53,46 +70,94 @@ export default function LinkedInSection() {
           </a>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {posts.map((post, i) => (
-            <a 
-              key={i}
-              href={post.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative p-[1px] rounded-[2rem] overflow-hidden transition-all duration-500 hover:-translate-y-2 flex flex-col h-full"
-            >
-              {/* Gradient Border */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#0077b5]/20 to-transparent opacity-50 group-hover:from-[#0077b5]/60 transition-all duration-500 z-0"></div>
-              
-              <div className="relative flex-1 bg-zinc-50 dark:bg-[#0a0a0a] rounded-[2rem] p-8 md:p-10 flex flex-col z-10 overflow-hidden shadow-lg dark:shadow-none">
-                {/* Hover Glow */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#0077b5]/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-                
-                <div className="relative z-20 flex flex-col h-full">
-                  <div className="flex items-center justify-between mb-8">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-[#0077b5]/10 flex items-center justify-center text-[#0077b5]">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                      </div>
-                      <span className="text-xs font-bold text-black/50 dark:text-white/50">
-                        {post.date}
-                      </span>
-                    </div>
+        {loading ? (
+          <div className="flex flex-col xl:flex-row gap-8 animate-pulse">
+            <div className="xl:w-1/2 h-[400px] bg-black/5 dark:bg-white/5 rounded-[2rem]"></div>
+            <div className="xl:w-1/2 flex gap-6 overflow-hidden">
+              <div className="w-[300px] md:w-[400px] h-[350px] bg-black/5 dark:bg-white/5 rounded-[2rem] flex-shrink-0"></div>
+              <div className="w-[300px] md:w-[400px] h-[350px] bg-black/5 dark:bg-white/5 rounded-[2rem] flex-shrink-0"></div>
+            </div>
+          </div>
+        ) : (
+          <div className="flex flex-col xl:flex-row gap-8 xl:h-[500px]">
+            {/* Latest Post - Prominent */}
+            {latest && (
+              <div className="xl:w-1/2 flex-shrink-0">
+                <a 
+                  href={latest.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative p-[1px] rounded-[2rem] overflow-hidden transition-all duration-500 hover:-translate-y-2 flex flex-col h-full min-h-[400px]"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#0077b5]/20 to-transparent opacity-50 group-hover:from-[#0077b5]/60 transition-all duration-500 z-0"></div>
+                  <div className="relative flex-1 bg-[#f8fafc] dark:bg-[#0a0a0a] rounded-[2rem] p-10 lg:p-14 flex flex-col z-10 overflow-hidden shadow-lg dark:shadow-none">
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#0077b5]/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                     
-                    <div className="w-8 h-8 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 group-hover:translate-x-0">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#0077b5]"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    <div className="relative z-20 flex flex-col h-full">
+                      <div className="flex items-center justify-between mb-10">
+                        <div className="flex items-center gap-4">
+                          <div className="w-12 h-12 rounded-full bg-[#0077b5]/10 flex items-center justify-center text-[#0077b5]">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                          </div>
+                          <span className="text-sm font-bold text-black/50 dark:text-white/50 uppercase tracking-widest">
+                            Latest • {latest.date}
+                          </span>
+                        </div>
+                        <div className="w-10 h-10 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 group-hover:translate-x-0">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#0077b5]"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </div>
+                      </div>
+                      
+                      <p className="text-2xl lg:text-3xl text-black/90 dark:text-white/90 leading-relaxed font-medium mt-auto">
+                        {latest.content}
+                      </p>
                     </div>
                   </div>
-                  
-                  <p className="text-lg md:text-xl text-black/90 dark:text-white/90 leading-relaxed font-medium mt-auto">
-                    {post.content}
-                  </p>
-                </div>
+                </a>
               </div>
-            </a>
-          ))}
-        </div>
+            )}
+
+            {/* Older Posts - Scrollable List */}
+            {others.length > 0 && (
+              <div className="xl:w-1/2 flex flex-col overflow-y-auto gap-6 pr-4 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:bg-[#0077b5]/30 dark:[&::-webkit-scrollbar-thumb]:bg-[#0077b5]/50 [&::-webkit-scrollbar-track]:bg-transparent">
+                {others.map((post, i) => (
+                  <a 
+                    key={i}
+                    href={post.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative p-[1px] rounded-[2rem] overflow-hidden transition-all duration-500 hover:-translate-y-2 flex flex-col w-full flex-shrink-0 min-h-[250px]"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#0077b5]/20 to-transparent opacity-50 group-hover:from-[#0077b5]/60 transition-all duration-500 z-0"></div>
+                    <div className="relative flex-1 bg-[#f8fafc] dark:bg-[#0a0a0a] rounded-[2rem] p-8 flex flex-col z-10 overflow-hidden shadow-lg dark:shadow-none">
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#0077b5]/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                      
+                      <div className="relative z-20 flex flex-col h-full">
+                        <div className="flex items-center justify-between mb-8">
+                          <div className="flex items-center gap-3">
+                            <div className="w-10 h-10 rounded-full bg-[#0077b5]/10 flex items-center justify-center text-[#0077b5]">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                            </div>
+                            <span className="text-xs font-bold text-black/50 dark:text-white/50">
+                              {post.date}
+                            </span>
+                          </div>
+                          <div className="w-8 h-8 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 group-hover:translate-x-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#0077b5]"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                          </div>
+                        </div>
+                        
+                        <p className="text-base md:text-lg text-black/90 dark:text-white/90 leading-relaxed font-medium mt-auto line-clamp-5">
+                          {post.content}
+                        </p>
+                      </div>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </section>
   );

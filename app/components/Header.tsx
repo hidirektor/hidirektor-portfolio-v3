@@ -26,7 +26,7 @@ export default function Header() {
   }, []);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'pt-6 pb-4 bg-white/80 dark:bg-[#050505]/80 backdrop-blur-md shadow-sm dark:shadow-none' : 'pt-16 pb-4 absolute'}`}>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'pt-6 pb-4' : 'pt-16 pb-4'} bg-white/80 backdrop-blur-md shadow-sm ${isScrolled ? 'dark:bg-[#050505]/80 dark:shadow-none' : 'dark:bg-transparent dark:backdrop-blur-none dark:shadow-none'}`}>
       <div className="wrap flex flex-col gap-4">
         <div className="flex items-start justify-between">
           {/* Logo */}
