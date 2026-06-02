@@ -1,28 +1,3 @@
 {
-  "posts": [
-    {
-      "id": "1",
-      "content": "Thrilled to announce that our IoT project won the TÜBİTAK 2209-B award! 🎉 Grateful for the amazing team and the support we received along the way. #IoT #TUBITAK #Engineering",
-      "date": "Apr 15, 2025",
-      "url": "https://www.linkedin.com/in/hidirektor/"
-    },
-    {
-      "id": "2",
-      "content": "Just finished reading 'Clean Architecture' by Robert C. Martin. It's fascinating how separating concerns can drastically improve the maintainability of large codebases. Highly recommend to all software engineers out there! 📚 #SoftwareArchitecture #CleanCode",
-      "date": "Feb 20, 2025",
-      "url": "https://www.linkedin.com/in/hidirektor/"
-    },
-    {
-      "id": "3",
-      "content": "Excited to share that I've successfully deployed our new microservices cluster using Kubernetes! The journey from Docker Compose to K8s was challenging but absolutely worth it for the scalability. 🚀 #Kubernetes #DevOps #Microservices",
-      "date": "Dec 05, 2024",
-      "url": "https://www.linkedin.com/in/hidirektor/"
-    },
-    {
-      "id": "4",
-      "content": "Reflecting on the importance of real-time communication protocols in modern web apps. WebRTC is powerful, but managing state across distributed peers requires careful planning. #WebRTC #Networking",
-      "date": "Oct 10, 2024",
-      "url": "https://www.linkedin.com/in/hidirektor/"
-    }
-  ]
+  "posts": []
 }
