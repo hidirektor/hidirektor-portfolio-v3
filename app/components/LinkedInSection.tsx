@@ -55,12 +55,15 @@ export default function LinkedInSection() {
             href="https://www.linkedin.com/in/hidirektor/"
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 group relative inline-flex items-center justify-center px-8 py-4 rounded-full bg-[#0077b5] text-white font-bold text-sm tracking-wide overflow-hidden transition-all duration-300 hover:scale-105 hover:bg-[#005582] shadow-xl shadow-[#0077b5]/20"
+            className="shrink-0 group relative p-[1px] rounded-full overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#0077b5]/10"
           >
-            <span className="relative z-10 flex items-center gap-2">
-              {t('linkedin.button')}
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </span>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0077b5]/40 via-[#0077b5]/10 to-transparent opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="relative bg-white dark:bg-[#050505] rounded-full px-8 py-4 flex items-center justify-center gap-3 z-10 transition-colors duration-500 group-hover:bg-[#f8fafc] dark:group-hover:bg-[#0a0a0a]">
+              <span className="font-bold text-sm tracking-widest text-[#0077b5] uppercase">
+                {t('linkedin.button')}
+              </span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-500 group-hover:translate-x-1 text-[#0077b5]"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </div>
           </a>
         </div>
 

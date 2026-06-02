@@ -56,12 +56,15 @@ export default function MediumSection() {
             href="https://medium.com/@hidirektor"
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 group relative inline-flex items-center justify-center px-8 py-4 rounded-full bg-zinc-900 dark:bg-zinc-100 text-zinc-100 dark:text-zinc-900 font-bold text-sm tracking-wide overflow-hidden transition-transform duration-300 hover:scale-105 shadow-xl"
+            className="shrink-0 group relative p-[1px] rounded-full overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/5 dark:hover:shadow-white/5"
           >
-            <span className="relative z-10 flex items-center gap-2">
-              {t('medium.button')}
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-            </span>
+            <div className="absolute inset-0 bg-gradient-to-r from-black/20 dark:from-white/20 via-black/5 dark:via-white/5 to-transparent opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <div className="relative bg-[#fafafa] dark:bg-[#050505] rounded-full px-8 py-4 flex items-center justify-center gap-3 z-10 transition-colors duration-500 group-hover:bg-white dark:group-hover:bg-[#0a0a0a]">
+              <span className="font-bold text-sm tracking-widest text-black dark:text-white uppercase">
+                {t('medium.button')}
+              </span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-500 group-hover:translate-x-1 text-black dark:text-white"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </div>
           </a>
         </div>
 
@@ -79,6 +82,16 @@ export default function MediumSection() {
             {latest && (
               <div className="xl:w-1/2 flex-shrink-0">
                 <Card href={latest.url} className="h-full min-h-[400px]">
+                  {latest.thumbnail && !latest.thumbnail.includes('stat?event') && (
+                    <div className="relative w-full h-48 md:h-64 rounded-2xl overflow-hidden mb-8 shrink-0">
+                      <img 
+                        src={latest.thumbnail} 
+                        alt={latest.title} 
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                      />
+                    </div>
+                  )}
+                  
                   <CardHeader>
                     <CardTag>Latest • {latest.date}</CardTag>
                     <div className="w-10 h-10 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 group-hover:translate-x-0">
@@ -86,7 +99,7 @@ export default function MediumSection() {
                     </div>
                   </CardHeader>
                   
-                  <h3 className="text-3xl lg:text-4xl font-bold tracking-tight text-black dark:text-white font-display group-hover:text-black/70 dark:group-hover:text-white/70 transition-colors duration-300 leading-tight mb-8">
+                  <h3 className="text-3xl lg:text-4xl font-bold tracking-tight text-black dark:text-white font-display group-hover:text-black/70 dark:group-hover:text-white/70 transition-colors duration-300 leading-tight mb-6">
                     {latest.title}
                   </h3>
                   
