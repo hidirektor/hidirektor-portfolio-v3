@@ -75,6 +75,11 @@
     "title": "Medium Articles",
     "description": "Read my latest thoughts, tutorials, and insights on software architecture, IoT, and more.",
     "button": "Visit Medium Profile",
+    "empty": {
+      "title": "No articles found",
+      "description": "My writing on software architecture, IoT, and engineering live on Medium. Head over to read my latest articles.",
+      "cta": "View Medium Articles"
+    },
     "items": {
       "article1": {
         "title": "Building Scalable IoT Systems with Node.js",
