@@ -76,6 +76,30 @@ export default function MediumSection() {
               <div className="w-full h-[250px] bg-black/5 dark:bg-white/5 rounded-[2rem] flex-shrink-0"></div>
             </div>
           </div>
+        ) : articles.length === 0 ? (
+          <div className="flex flex-col items-center justify-center gap-8 text-center pt-16 pb-20">
+            <div className="w-20 h-20 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center text-black/40 dark:text-white/40 mb-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><path d="M2.846 6.887c.03-.295-.083-.586-.303-.784l-2.24-2.7v-.403h6.958l5.378 11.795 4.728-11.795h6.633v.403l-1.916 1.837c-.165.126-.247.333-.213.538v13.498c-.034.204.048.411.213.537l1.871 1.837v.403h-9.412v-.403l1.939-1.882c.19-.19.19-.246.19-.537v-10.91l-5.389 13.688h-.728l-6.275-13.688v9.174c-.052.385.076.774.347 1.052l2.521 3.058v.404h-7.148v-.404l2.521-3.058c.27-.279.39-.67.325-1.052v-10.608z"/></svg>
+            </div>
+            <h3 className="text-2xl font-bold text-black dark:text-white font-display">
+              {t('medium.empty.title')}
+            </h3>
+            <p className="text-black/50 dark:text-white/50 text-lg font-light max-w-md leading-relaxed">
+              {t('medium.empty.description')}
+            </p>
+            <a
+              href="https://medium.com/@hidirektor"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative p-[1px] rounded-full overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/5 dark:hover:shadow-white/5 mt-2"
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-black/20 dark:from-white/20 via-black/5 dark:via-white/5 to-transparent opacity-70 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative bg-[#fafafa] dark:bg-[#050505] rounded-full px-8 py-4 flex items-center justify-center gap-3 z-10 transition-colors duration-500 group-hover:bg-white dark:group-hover:bg-[#0a0a0a]">
+                <span className="font-bold text-sm tracking-widest text-black dark:text-white uppercase">{t('medium.empty.cta')}</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-500 group-hover:translate-x-1 text-black dark:text-white"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </div>
+            </a>
+          </div>
         ) : (
           <div className="flex flex-col xl:flex-row gap-8 xl:h-[500px]">
             {/* Latest Article - Prominent */}
