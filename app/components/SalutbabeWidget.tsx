@@ -34,18 +34,18 @@ export default function SalutbabeWidget() {
       </div>
 
       {/* Expanded Panel */}
-      <div className="absolute left-10 md:left-12 top-1/2 -translate-y-1/2 w-[280px] md:w-[340px] bg-[#0a0a0a]/90 backdrop-blur-3xl border border-white/10 rounded-3xl shadow-[0_0_50px_rgba(228,0,124,0.3)] overflow-hidden opacity-0 -translate-x-full pointer-events-none group-hover:opacity-100 group-hover:translate-x-0 group-hover:pointer-events-auto transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] flex flex-col z-10">
+      <div className="absolute left-10 md:left-12 top-1/2 -translate-y-1/2 w-[280px] md:w-[340px] bg-white/90 dark:bg-[#0a0a0a]/90 backdrop-blur-3xl border border-black/10 dark:border-white/10 rounded-3xl shadow-[0_0_50px_rgba(228,0,124,0.3)] overflow-hidden opacity-0 -translate-x-full pointer-events-none group-hover:opacity-100 group-hover:translate-x-0 group-hover:pointer-events-auto transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] flex flex-col z-10">
         
         {/* Header Image Area */}
-        <div className="relative w-full h-40 md:h-48 bg-[#050505]">
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] to-transparent z-10"></div>
+        <div className="relative w-full h-40 md:h-48 bg-zinc-100 dark:bg-[#050505]">
+          <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-[#0a0a0a] to-transparent z-10"></div>
           
           <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20">
-            <h3 className="text-2xl font-black text-white font-display tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">salutbabe</h3>
+            <h3 className="text-2xl font-black text-black dark:text-white font-display tracking-tight drop-shadow-[0_2px_10px_rgba(255,255,255,0.8)] dark:drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">salutbabe</h3>
           </div>
 
           <div className="absolute inset-0 flex justify-center gap-4 px-6 pt-12 opacity-85 z-0">
-            <div className="relative w-1/2 h-full rounded-t-2xl overflow-hidden border border-white/10 shadow-2xl transform -rotate-2 hover:rotate-0 transition-transform duration-500">
+            <div className="relative w-1/2 h-full rounded-t-2xl overflow-hidden border border-black/10 dark:border-white/10 shadow-2xl transform -rotate-2 hover:rotate-0 transition-transform duration-500">
               <Image 
                 src="/assets/images/230x498bb.webp" 
                 alt="Salutbabe App Screen 1" 
@@ -53,7 +53,7 @@ export default function SalutbabeWidget() {
                 className="object-cover object-top"
               />
             </div>
-            <div className="relative w-1/2 h-full rounded-t-2xl overflow-hidden border border-white/10 shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
+            <div className="relative w-1/2 h-full rounded-t-2xl overflow-hidden border border-black/10 dark:border-white/10 shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
               <Image 
                 src="/assets/images/230x498bb-2.webp" 
                 alt="Salutbabe App Screen 2" 
@@ -69,7 +69,7 @@ export default function SalutbabeWidget() {
           
           <p className="text-[#FBDD09] text-sm md:text-xs font-bold tracking-widest uppercase" style={{ paddingLeft: '32px', paddingRight: '32px', marginTop: '32px', marginBottom: '16px' }}>{t('salutbabe.title')}</p>
           
-          <p className="text-white/70 text-sm leading-relaxed" style={{ paddingLeft: '32px', paddingRight: '32px', marginBottom: '32px' }}>
+          <p className="text-black/70 dark:text-white/70 text-sm leading-relaxed" style={{ paddingLeft: '32px', paddingRight: '32px', marginBottom: '32px' }}>
             {t('salutbabe.description')}
           </p>
 
