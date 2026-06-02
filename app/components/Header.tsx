@@ -28,9 +28,9 @@ export default function Header() {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'pt-6 pb-4' : 'pt-16 pb-4'} bg-white/80 backdrop-blur-md shadow-sm ${isScrolled ? 'dark:bg-[#050505]/80 dark:shadow-none' : 'dark:bg-transparent dark:backdrop-blur-none dark:shadow-none'}`}>
       <div className="wrap flex flex-col gap-4">
-        <div className="flex items-start justify-between">
+        <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="group relative pb-1 text-2xl font-medium tracking-tight">
+          <Link href="/" className="group relative pb-1 mt-1 text-2xl font-medium tracking-tight">
             <span className="transition-all duration-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#FBDD09] group-hover:via-[#E4007C] group-hover:to-[#D30026] block text-black dark:text-white">
               {isScrolled ? "Halil İbrahim" : "it's me"}
             </span>

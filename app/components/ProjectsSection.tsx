@@ -1,6 +1,7 @@
 'use client';
 
 import {useLanguage} from '../context/LanguageContext';
+import {Card, CardHeader, CardTag} from './Card';
 
 export default function ProjectsSection() {
   const { t } = useLanguage();
@@ -64,62 +65,56 @@ export default function ProjectsSection() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 xl:gap-16">
           {projects.map((project, i) => (
-            <div 
-              key={i}
-              className="group relative p-[1px] rounded-3xl overflow-hidden transition-all duration-500 hover:-translate-y-2"
-            >
-              {/* Animated border gradient */}
-              <div className="absolute inset-0 bg-gradient-to-br from-black/10 dark:from-white/10 to-transparent opacity-50 group-hover:from-[#E4007C]/50 group-hover:via-[#FBDD09]/50 group-hover:to-transparent transition-all duration-500 z-0"></div>
-              
-              {/* Card content */}
-              <div className="relative h-full bg-zinc-50 dark:bg-[#0a0a0a] rounded-3xl flex flex-col justify-between z-10 overflow-hidden" style={{ padding: '40px' }}>
-                
-                {/* Radial glow effect on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-black/[0.03] dark:from-white/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-
-                <div className="relative z-20">
-                  <div className="flex flex-wrap items-start justify-between gap-6 mb-10">
-                    <h3 className="text-xl md:text-2xl font-bold tracking-tight text-black dark:text-white font-display group-hover:text-[#E4007C] transition-colors duration-300 flex-1 min-w-[200px] leading-tight">
-                      {project.title}
-                    </h3>
-                    <span className="inline-flex items-center justify-center px-4 py-2 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-xs font-bold text-black/50 dark:text-white/50 whitespace-nowrap shrink-0 mt-1">
-                      {project.date}
-                    </span>
-                  </div>
-                  
-                  <p className="text-base text-black/50 dark:text-white/50 mb-12 leading-relaxed font-light">
-                    {project.description}
-                  </p>
-                </div>
-
-                <div className="relative z-20 mt-auto">
-                  <div className="flex flex-wrap items-center gap-4 mb-12">
-                    {project.tech.map((t) => (
-                      <span 
-                        key={t}
-                        className="px-4 py-2 rounded-xl bg-black/[0.04] dark:bg-white/[0.04] border border-black/[0.08] dark:border-white/[0.08] text-sm font-semibold tracking-wide text-black/80 dark:text-white/80"
-                      >
-                        {t}
-                      </span>
-                    ))}
+            <div key={i} className="h-full">
+              <Card 
+                className="h-full"
+                innerClassName="!bg-zinc-50 dark:!bg-[#0a0a0a]"
+                gradientClassName="from-black/10 dark:from-white/10"
+                hoverGradientClassName="group-hover:from-[#E4007C]/50 group-hover:via-[#FBDD09]/50 group-hover:to-transparent"
+              >
+                <div className="flex flex-col justify-between h-full">
+                  <div className="relative z-20">
+                    <CardHeader className="mb-10 sm:items-start">
+                      <h3 className="text-xl md:text-2xl font-bold tracking-tight text-black dark:text-white font-display group-hover:text-[#E4007C] transition-colors duration-300 flex-1 min-w-[200px] leading-tight">
+                        {project.title}
+                      </h3>
+                      <CardTag className="shrink-0">{project.date}</CardTag>
+                    </CardHeader>
+                    
+                    <p className="text-base text-black/50 dark:text-white/50 mb-12 leading-relaxed font-light">
+                      {project.description}
+                    </p>
                   </div>
 
-                  <div className="flex flex-wrap items-center gap-8 mt-auto">
-                    {project.links.map((link) => (
-                      <a
-                        key={link.label}
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm font-bold text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white flex items-center gap-2 transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-black dark:after:bg-white hover:after:w-full after:transition-all after:duration-300 pb-1"
-                      >
-                        {link.label} 
-                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                      </a>
-                    ))}
+                  <div className="relative z-20 mt-auto">
+                    <div className="flex flex-wrap items-center gap-4 mb-12">
+                      {project.tech.map((t) => (
+                        <span 
+                          key={t}
+                          className="px-4 py-2 rounded-xl bg-black/[0.04] dark:bg-white/[0.04] border border-black/[0.08] dark:border-white/[0.08] text-sm font-semibold tracking-wide text-black/80 dark:text-white/80"
+                        >
+                          {t}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="flex flex-wrap items-center gap-8 mt-auto">
+                      {project.links.map((link) => (
+                        <a
+                          key={link.label}
+                          href={link.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm font-bold text-black/60 dark:text-white/60 hover:text-black dark:hover:text-white flex items-center gap-2 transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-px after:bg-black dark:after:bg-white hover:after:w-full after:transition-all after:duration-300 pb-1"
+                        >
+                          {link.label} 
+                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                        </a>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Card>
             </div>
           ))}
         </div>
