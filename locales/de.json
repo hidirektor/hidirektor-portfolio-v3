@@ -75,6 +75,11 @@
     "title": "Medium Artikel",
     "description": "Lesen Sie meine neuesten Gedanken, Tutorials und Erkenntnisse über Softwarearchitektur, IoT und mehr.",
     "button": "Medium-Profil besuchen",
+    "empty": {
+      "title": "Keine Artikel gefunden",
+      "description": "Meine Artikel über Softwarearchitektur, IoT und Engineering veröffentliche ich auf Medium. Besuche mein Profil, um die neuesten Beiträge zu lesen.",
+      "cta": "Medium-Artikel ansehen"
+    },
     "items": {
       "article1": {
         "title": "Aufbau skalierbarer IoT-Systeme mit Node.js",
