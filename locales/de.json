@@ -98,9 +98,11 @@
     "title": "LinkedIn Beiträge",
     "description": "Bleiben Sie auf dem Laufenden über meine berufliche Reise, Erfolge und Brancheneinblicke.",
     "button": "LinkedIn-Profil besuchen",
-    "empty.title": "Noch keine Beiträge",
-    "empty.description": "Ich teile meine berufliche Reise, technische Einblicke und Projektmeilensteine auf LinkedIn. Besuche mein Profil, um auf dem Laufenden zu bleiben.",
-    "empty.cta": "LinkedIn-Aktivität ansehen",
+    "empty": {
+      "title": "Keine Beiträge gefunden",
+      "description": "Meine neuesten Gedanken, Projekte und Brancheneinblicke teile ich auf LinkedIn. Besuche mein Profil, um auf dem Laufenden zu bleiben.",
+      "cta": "LinkedIn-Aktivität ansehen"
+    },
     "items": {
       "post1": {
         "content": "Ich freue mich riesig, Ihnen mitteilen zu können, dass unser IoT-Projekt mit dem TÜBİTAK 2209-B-Preis ausgezeichnet wurde! 🎉 Vielen Dank an das großartige Team. #IoT",
