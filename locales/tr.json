@@ -75,6 +75,11 @@
     "title": "Medium Makaleleri",
     "description": "Yazılım mimarisi, IoT ve daha fazlası hakkındaki en son düşüncelerimi, eğitimlerimi ve içgörülerimi okuyun.",
     "button": "Medium Profilini Ziyaret Et",
+    "empty": {
+      "title": "Makale bulunamadı",
+      "description": "Yazılım mimarisi, IoT ve mühendislik hakkındaki makalelerimi Medium'da yayınlıyorum. En son yazılarımı okumak için profilimi ziyaret edin.",
+      "cta": "Medium Makalelerini Gör"
+    },
     "items": {
       "article1": {
         "title": "Node.js ile Ölçeklenebilir IoT Sistemleri Geliştirmek",
