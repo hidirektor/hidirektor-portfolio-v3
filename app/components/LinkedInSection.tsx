@@ -111,7 +111,7 @@ export default function LinkedInSection() {
 
             {/* Older Posts - Scrollable List */}
             {others.length > 0 && (
-              <div className="xl:w-1/2 flex flex-col overflow-y-auto gap-6 pr-4 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:bg-[#0077b5]/30 dark:[&::-webkit-scrollbar-thumb]:bg-[#0077b5]/50 [&::-webkit-scrollbar-track]:bg-transparent">
+              <div className="xl:w-1/2 flex flex-col overflow-y-auto overflow-x-hidden gap-6 pr-1 [&::-webkit-scrollbar]:w-0 [&::-webkit-scrollbar-thumb]:bg-transparent scrollbar-none" style={{ scrollbarWidth: 'none' }}>
                 {others.map((post, i) => (
                   <Card 
                     key={i} 

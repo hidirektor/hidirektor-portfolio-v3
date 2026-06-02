@@ -112,7 +112,7 @@ export default function MediumSection() {
 
             {/* Older Articles - Scrollable List */}
             {others.length > 0 && (
-              <div className="xl:w-1/2 flex flex-col overflow-y-auto gap-6 pr-4 [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:bg-black/10 dark:[&::-webkit-scrollbar-thumb]:bg-white/10 [&::-webkit-scrollbar-track]:bg-transparent">
+              <div className="xl:w-1/2 flex flex-col overflow-y-auto overflow-x-hidden gap-6 pr-1 [&::-webkit-scrollbar]:w-0 [&::-webkit-scrollbar-thumb]:bg-transparent scrollbar-none" style={{ scrollbarWidth: 'none' }}>
                 {others.map((article, i) => (
                   <Card key={i} href={article.url} className="flex-shrink-0 min-h-[250px]">
                     <CardHeader>
