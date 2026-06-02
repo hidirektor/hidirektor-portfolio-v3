@@ -98,6 +98,9 @@
     "title": "LinkedIn Posts",
     "description": "Stay updated with my professional journey, achievements, and industry insights.",
     "button": "Visit LinkedIn Profile",
+    "empty.title": "No posts yet",
+    "empty.description": "I share my professional journey, engineering insights, and project milestones on LinkedIn. Head over to my profile to follow along.",
+    "empty.cta": "View LinkedIn Activity",
     "items": {
       "post1": {
         "content": "Thrilled to announce that our IoT project won the TÜBİTAK 2209-B award! 🎉 Grateful for the amazing team and support. #IoT #TUBITAK",
