@@ -19,19 +19,24 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
-  const [language, setLanguageState] = useState<Language>('en');
+  // Start with browser language immediately; localStorage takes priority
+  const [language, setLanguageState] = useState<Language>(() => {
+    // During SSR navigator is unavailable — return 'en' as placeholder
+    if (typeof window === 'undefined') return 'en';
+    const saved = localStorage.getItem('language') as Language;
+    if (saved && translations[saved]) return saved;
+    const browserLang = navigator.language.split('-')[0] as Language;
+    return translations[browserLang] ? browserLang : 'en';
+  });
 
   useEffect(() => {
-    // Load saved language from localStorage on mount
-    const savedLang = localStorage.getItem('language') as Language;
-    if (savedLang && translations[savedLang]) {
-      setLanguageState(savedLang);
+    // Re-run on client to pick up browser language (handles SSR mismatch)
+    const saved = localStorage.getItem('language') as Language;
+    if (saved && translations[saved]) {
+      setLanguageState(saved);
     } else {
-      // Auto-detect browser language if no preference is saved
       const browserLang = navigator.language.split('-')[0] as Language;
-      if (translations[browserLang]) {
-        setLanguageState(browserLang);
-      }
+      if (translations[browserLang]) setLanguageState(browserLang);
     }
   }, []);
 

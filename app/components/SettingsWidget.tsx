@@ -8,17 +8,19 @@ export default function SettingsWidget() {
   const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
-    setIsDark(document.documentElement.classList.contains('dark'));
+    // 1. Check localStorage; 2. Fall back to browser preference
+    const saved = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const dark = saved ? saved === 'dark' : prefersDark;
+    document.documentElement.classList.toggle('dark', dark);
+    setIsDark(dark);
   }, []);
 
   const toggleTheme = () => {
-    if (document.documentElement.classList.contains('dark')) {
-      document.documentElement.classList.remove('dark');
-      setIsDark(false);
-    } else {
-      document.documentElement.classList.add('dark');
-      setIsDark(true);
-    }
+    const dark = !isDark;
+    document.documentElement.classList.toggle('dark', dark);
+    localStorage.setItem('theme', dark ? 'dark' : 'light');
+    setIsDark(dark);
   };
 
   const langs = ['en', 'tr', 'de'] as const;

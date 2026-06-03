@@ -2,32 +2,75 @@
 
 import {useLanguage} from '../context/LanguageContext';
 
+const icons: Record<string, string> = {
+  'SCALABLE SYSTEMS':       '⚡',
+  'REAL-TIME IoT':          '🌐',
+  'FULL-STACK ARCHITECTURE':'🏗️',
+  'CLOUD DEPLOYMENTS':      '☁️',
+  'MACHINE LEARNING':       '🤖',
+  // TR fallbacks
+  'ÖLÇEKLENEBILIR SİSTEMLER': '⚡',
+  'GERÇEK ZAMANLI IoT':        '🌐',
+  'TAM YIĞIN MİMARİSİ':        '🏗️',
+  'BULUT DAĞITIMI':             '☁️',
+  'MAKİNE ÖĞRENMESİ':          '🤖',
+  // DE fallbacks
+  'SKALIERBARE SYSTEME':        '⚡',
+  'ECHTZEIT-IoT':               '🌐',
+  'FULL-STACK-ARCHITEKTUR':     '🏗️',
+  'CLOUD-DEPLOYMENTS':          '☁️',
+  'MASCHINELLES LERNEN':        '🤖',
+};
+
+function getIcon(text: string) {
+  return icons[text.toUpperCase()] ?? '✦';
+}
+
 export default function ScrollingBanner() {
   const { t } = useLanguage();
-  
-  const items = [
+
+  const rowA = [
     t('banner.item1'),
     t('banner.item2'),
     t('banner.item3'),
     t('banner.item4'),
-    t('banner.item5')
+    t('banner.item5'),
   ];
 
+  // Second row is reversed order for the reverse-scroll direction
+  const rowB = [...rowA].reverse();
+
+  const repeat = (arr: string[]) => [...arr, ...arr, ...arr, ...arr];
+
   return (
-    <div className="w-full bg-[#E4007C] overflow-hidden py-4 border-y border-[#FBDD09]/20 relative z-20">
-      <div className="flex whitespace-nowrap">
-        {/* Animate-scroll class applies a 20s infinite scroll to the left */}
-        <div className="animate-scroll flex gap-8 px-4 items-center">
-          {items.concat(items).concat(items).map((text, i) => (
-            <div key={i} className="flex items-center gap-8">
-              <span className="text-white font-black tracking-widest text-sm md:text-base">
-                {text}
-              </span>
-              <span className="w-2 h-2 rounded-full bg-[#FBDD09]" />
-            </div>
-          ))}
-        </div>
+    <div className="banner-wrapper">
+      {/* ── Gradient edges (fade out) ── */}
+      <div className="banner-fade-left" />
+      <div className="banner-fade-right" />
+
+      {/* ── Row 1 — scrolls LEFT ── */}
+      <div className="banner-track banner-track--left">
+        {repeat(rowA).map((text, i) => (
+          <BannerPill key={i} text={text} variant="primary" />
+        ))}
       </div>
+
+      {/* ── Row 2 — scrolls RIGHT ── */}
+      <div className="banner-track banner-track--right">
+        {repeat(rowB).map((text, i) => (
+          <BannerPill key={i} text={text} variant="secondary" />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function BannerPill({ text, variant }: { text: string; variant: 'primary' | 'secondary' }) {
+  const isPrimary = variant === 'primary';
+  return (
+    <div className={`banner-pill ${isPrimary ? 'banner-pill--primary' : 'banner-pill--secondary'}`}>
+      <span className="banner-pill-icon">{getIcon(text)}</span>
+      <span className="banner-pill-text">{text}</span>
     </div>
   );
 }
