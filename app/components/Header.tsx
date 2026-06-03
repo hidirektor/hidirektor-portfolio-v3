@@ -9,22 +9,28 @@ const CV_URL = 'https://www.overleaf.com/read/nzxczqqpswhr#7afb2f';
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [cvOpen, setCvOpen] = useState(false);
+  const [photoOpen, setPhotoOpen] = useState(false);
   const { t } = useLanguage();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Lock body scroll when modal is open
+  // Lock body scroll when any modal is open
   useEffect(() => {
-    document.body.style.overflow = cvOpen ? 'hidden' : '';
+    document.body.style.overflow = (cvOpen || photoOpen) ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
-  }, [cvOpen]);
+  }, [cvOpen, photoOpen]);
+
+  // Close photo lightbox on Escape
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setPhotoOpen(false); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
 
   return (
     <>
@@ -122,6 +128,7 @@ export default function Header() {
       {cvOpen && (
         <div className="cv-modal-overlay" onClick={() => setCvOpen(false)} role="dialog" aria-modal="true" aria-label="CV Preview">
           <div className="cv-modal" onClick={e => e.stopPropagation()}>
+
             {/* Modal Header */}
             <div className="cv-modal-header">
               <div className="cv-modal-title">
@@ -133,40 +140,181 @@ export default function Header() {
                 </svg>
                 <span style={{textTransform: 'none', fontVariant: 'normal'}}>Curriculum Vitae</span>
               </div>
-              <div className="cv-modal-actions">
-                <a
-                  href={CV_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="cv-external-btn"
-                  title="Open in Overleaf"
+              <button className="cv-close-btn" onClick={() => setCvOpen(false)} aria-label="Close">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"/>
+                  <line x1="6" y1="6" x2="18" y2="18"/>
+                </svg>
+              </button>
+            </div>
+
+            {/* CV Scrollable Body */}
+            <div className="cv-modal-body cv-scroll-body">
+              {/* ── Hero section ── */}
+              <div className="cv-preview-body">
+                {/* Glow blobs */}
+                <div className="cv-blob cv-blob--pink" />
+                <div className="cv-blob cv-blob--yellow" />
+
+                {/* Avatar — click/hover to open full photo */}
+                <div
+                  className="cv-avatar-ring cv-avatar-ring--clickable"
+                  onClick={() => setPhotoOpen(true)}
+                  title="View photo"
                 >
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <img
+                    src="/assets/images/profile.jpeg"
+                    alt="Halil İbrahim Direktör"
+                    className="cv-avatar"
+                  />
+                  <div className="cv-avatar-hover-hint">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="11" cy="11" r="8"/>
+                      <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                      <line x1="11" y1="8" x2="11" y2="14"/>
+                      <line x1="8" y1="11" x2="14" y2="11"/>
+                    </svg>
+                  </div>
+                </div>
+
+                {/* Name & Title */}
+                <h2 className="cv-name">Halil İbrahim Direktör</h2>
+                <p className="cv-role">Software Architect</p>
+
+                {/* Fancy quote */}
+                <p className="cv-quote">It's memory, stupid.</p>
+
+                {/* Divider */}
+                <div className="cv-divider" />
+
+                {/* CTA */}
+                <a href={CV_URL} target="_blank" rel="noopener noreferrer" className="cv-open-btn">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
                     <polyline points="15 3 21 3 21 9"/>
                     <line x1="10" y1="14" x2="21" y2="3"/>
                   </svg>
-                  Open in Overleaf
+                  View Full CV on Overleaf
                 </a>
-                <button className="cv-close-btn" onClick={() => setCvOpen(false)} aria-label="Close">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="18" y1="6" x2="6" y2="18"/>
-                    <line x1="6" y1="6" x2="18" y2="18"/>
-                  </svg>
-                </button>
+                <p className="cv-hint">Opens in a new tab</p>
+
+                {/* Scroll indicator */}
+                <div className="cv-scroll-indicator">
+                  <span className="cv-scroll-label">Scroll to view CV</span>
+                  <div className="cv-mouse">
+                    <div className="cv-mouse-wheel" />
+                  </div>
+                </div>
+              </div>
+
+              {/* ── CV Content Sections ── */}
+              <div className="cv-sections">
+
+                {/* Experience */}
+                <div className="cv-section">
+                  <div className="cv-section-label">Experience</div>
+                  <div className="cv-entries">
+                    <div className="cv-entry">
+                      <div className="cv-entry-header">
+                        <span className="cv-entry-title">Software Architect</span>
+                        <span className="cv-entry-date">2023 — Present</span>
+                      </div>
+                      <span className="cv-entry-sub">Freelance / Independent</span>
+                      <p className="cv-entry-desc">Designing and building scalable full-stack systems, IoT integrations, and cloud-native architectures for clients across multiple industries.</p>
+                    </div>
+                    <div className="cv-entry">
+                      <div className="cv-entry-header">
+                        <span className="cv-entry-title">Embedded Systems Engineer</span>
+                        <span className="cv-entry-date">2022 — 2023</span>
+                      </div>
+                      <span className="cv-entry-sub">TÜBİTAK 2209-B Project</span>
+                      <p className="cv-entry-desc">Developed a modular IIoT platform using STM32, FreeRTOS, Modbus protocol, and Node.js backend. Award-winning project for industrial IoT data collection.</p>
+                    </div>
+                    <div className="cv-entry">
+                      <div className="cv-entry-header">
+                        <span className="cv-entry-title">Full-Stack Developer</span>
+                        <span className="cv-entry-date">2021 — 2022</span>
+                      </div>
+                      <span className="cv-entry-sub">Personal Projects</span>
+                      <p className="cv-entry-desc">Built cross-platform delivery management systems with Spring Boot, native Android (Java) and iOS (Swift) applications.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="cv-section-divider" />
+
+                {/* Education */}
+                <div className="cv-section">
+                  <div className="cv-section-label">Education</div>
+                  <div className="cv-entries">
+                    <div className="cv-entry">
+                      <div className="cv-entry-header">
+                        <span className="cv-entry-title">Computer Engineering</span>
+                        <span className="cv-entry-date">2020 — Present</span>
+                      </div>
+                      <span className="cv-entry-sub">Undergraduate</span>
+                      <p className="cv-entry-desc">Focused on software architecture, embedded systems, distributed systems, and machine learning.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="cv-section-divider" />
+
+                {/* Skills */}
+                <div className="cv-section">
+                  <div className="cv-section-label">Tech Stack</div>
+                  <div className="cv-skills-grid">
+                    {[
+                      { cat: 'Backend',   items: ['Spring Boot', 'Node.js', 'PostgreSQL', 'Redis'] },
+                      { cat: 'Frontend',  items: ['Next.js', 'React', 'TypeScript', 'Tailwind'] },
+                      { cat: 'Embedded',  items: ['STM32', 'FreeRTOS', 'Modbus', 'MQTT'] },
+                      { cat: 'DevOps',    items: ['Kubernetes', 'Docker', 'CI/CD', 'AWS'] },
+                      { cat: 'ML / AI',   items: ['PyTorch', 'Python', 'NumPy', 'Pandas'] },
+                    ].map(({ cat, items }) => (
+                      <div key={cat} className="cv-skill-group">
+                        <span className="cv-skill-cat">{cat}</span>
+                        <div className="cv-skill-items">
+                          {items.map(i => <span key={i} className="cv-skill-chip">{i}</span>)}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
               </div>
             </div>
 
-            {/* iframe Preview */}
-            <div className="cv-modal-body">
-              <iframe
-                src={CV_URL}
-                title="CV Preview"
-                className="cv-iframe"
-                sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
-              />
-            </div>
+
           </div>
+        </div>
+      )}
+
+      {/* ── Photo Lightbox ── */}
+      {photoOpen && (
+        <div
+          className="photo-lightbox-overlay"
+          onClick={() => setPhotoOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Profile photo"
+        >
+          <img
+            src="/assets/images/profile.jpeg"
+            alt="Halil İbrahim Direktör"
+            className="photo-lightbox-img"
+            onClick={e => e.stopPropagation()}
+          />
+          <button
+            className="photo-lightbox-close"
+            onClick={() => setPhotoOpen(false)}
+            aria-label="Close"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"/>
+              <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
+          <p className="photo-lightbox-hint">Tap anywhere or press Esc to close</p>
         </div>
       )}
 
